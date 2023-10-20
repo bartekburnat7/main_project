@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
+from fit_sync_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('', views.index, name='home'),
+    path('schedule/', views.schedule, name='schedule') 
 ]
