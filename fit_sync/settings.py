@@ -19,6 +19,7 @@ if os.path.isfile("env.py"):
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+STATICFILES_DIRS = [BASE_DIR / "static"]
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
