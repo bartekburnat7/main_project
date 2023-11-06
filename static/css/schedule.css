@@ -1,0 +1,40 @@
+.row {
+    margin: 10px auto 10px auto;
+    max-width: 1500px;
+}
+
+#text_heading {
+    margin: 15px;
+    text-align: center;
+}
+
+#add_lesson_form {
+    padding-bottom: 20px;
+}
+
+form>input {
+    margin: 10px 0px 10px 0px;
+}
+
+#calendar {
+    border: solid #e4e4e4 1px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.dashboard_calendar_item {
+    margin-top: 10px;
+    background-color: #212529;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+}
+
+.dashboard_calendar_item>h2 {
+    padding: 10px 0 10px 0;
+    margin: auto 10px auto auto;
+}
+
+.dashboard_calendar_item>h3 {
+    margin: auto 0px auto 10px;
+}
