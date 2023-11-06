@@ -1,0 +1,78 @@
+/*  DASHBOARD CONTENT   */
+
+#dashboard {
+    margin-top: 20px;
+}
+
+
+/*  DASHBOARD CALENDAR  */
+
+.row {
+    margin: 10px auto 10px auto;
+    max-width: 1500px;
+}
+
+#dashboard_calendar {
+    margin-bottom: 10px;
+    border: solid #60666d 1px;
+    border-radius: 10px;
+}
+
+.dashboard_calendar_item {
+    margin: 3px;
+    background-color: #212529;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+}
+
+.dashboard_calendar_item>h2 {
+    padding: 10px 0 10px 0;
+    margin: auto 10px auto auto;
+}
+
+.dashboard_calendar_item>h3 {
+    margin: auto 0px auto 10px;
+}
+
+#dashboard_earning {
+    border: solid #60666d 1px;
+    border-radius: 10px;
+}
+
+#dashboard_earning>p {
+    margin: 0 10px 5px 10px;
+}
+
+
+/*  FEATURES LIST   */
+
+#features_list>div {
+    margin-bottom: 10px;
+}
+
+#features_list>div>div {
+    margin-bottom: 10px;
+    border: solid #60666d 1px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+#features_list h2 {
+    margin: 15px;
+}
+
+#features_list p {
+    padding: 0 10px 0 10px;
+}
+
+#features_list a {
+    margin: 10px;
+}
+
+
+/*  FOOTER  */
+
+.main_footer {
+    height: 50vh;
+}
