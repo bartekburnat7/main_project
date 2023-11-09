@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from fit_sync_app.models import schedule_of_lesson
+from fit_sync_app.models import TrainingSession
 from django.contrib.auth.models import User
 
 
@@ -19,10 +19,10 @@ def schedule(request):
         time_of_lesson = request.POST.get('time_of_lesson')
         try:
             form_for_user = User.objects.get(username=created_for_user)
-            schedule_of_lesson.objects.create(created_by_user=current_user, created_for_user=form_for_user, type_of_lesson=type_of_lesson, time_of_lesson=time_of_lesson)
+            TrainingSession.objects.create(created_by_user=current_user, created_for_user=form_for_user, type_of_lesson=type_of_lesson, time_of_lesson=time_of_lesson)
         except User.DoesNotExist:
             messages.error(request, 'User does not exist')
         
-    query = schedule_of_lesson.objects.filter(created_by_user=current_user).order_by('time_of_lesson')
+    query = TrainingSession.objects.filter(created_by_user=current_user).order_by('time_of_lesson')
                     
     return render(request, "schedule.html", {'query': query})

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import schedule_of_lesson
+from fit_sync_app.models import TrainingSession
 
 # Register your models here.
-admin.site.register(schedule_of_lesson)
+admin.site.register(TrainingSession)
