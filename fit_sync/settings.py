@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',
     'fit_sync_app',
+    'accounts',
 ]
 
 SITE_ID = 1
@@ -133,6 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
