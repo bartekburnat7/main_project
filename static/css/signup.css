@@ -1,0 +1,7 @@
+#signupFormContainer {
+    text-align: center;
+}
+
+#signupFormContainer label {
+    display: none;
+}
