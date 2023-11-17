@@ -7,11 +7,9 @@
   </head>
   <body> 
     <div id="signupFormContainer">
-      <form method="POST" action="{% url 'account_signup' %}">
+      <form method="POST" action="{% url 'signup' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="checkbox" name="is_trainer"/>
-        <label for="is_trainer">Are you a tra<iner?</label>br /><br />
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}

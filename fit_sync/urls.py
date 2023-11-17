@@ -19,6 +19,7 @@ from fit_sync_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
     path('accounts/', include('allauth.urls')),
     path('', views.index, name='home'),
     path('schedule/', views.schedule, name='schedule'),
