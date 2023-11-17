@@ -35,10 +35,7 @@
       <div class="row">
         <form method="POST" id="add_lesson_form" action="" class="col-md-4">
           {% csrf_token %}
-          {% if messages %}
-            {% for message in messages %}<p>{{ message }}</p>{% endfor %}
-          {% endif %}
-          
+         
           <div class="input-group">
             <div class="input-group-text">@</div>
             <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user">
@@ -49,15 +46,22 @@
           <button type="submit" name="submit" class="btn btn-primary">Add+</button>
         </form>
         
-
-          
-
-        
         <div id="calendar" class="col-md-8">
           {% for q in query %}
-          <div class="dashboard_calendar_item" href="#">
-            <h3 class="fs-5">{{ q.created_for_user}}</h3>
-            <h2 class="fs-1">{{ q.time_of_lesson }}</h2>
+          <div class="dashboard_calendar_item row row-cols-md-2" href="#">
+            <p id="calendarUsername">@{{ q.student }}</p>
+            <p id="calendarTimestamp">{{ q.timestamp }}</p>
+            <p id="calendarLessonType">Lesson Type: {{ q.lesson_type }}</p>
+            <div class="dropdown" id="calendarEdit">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                More
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
           </div>
           {% endfor %}
         </div>

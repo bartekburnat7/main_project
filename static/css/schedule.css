@@ -16,25 +16,29 @@ form>input {
     margin: 10px 0px 10px 0px;
 }
 
-#calendar {
-    border: solid #e4e4e4 1px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-}
-
 .dashboard_calendar_item {
     margin-top: 10px;
-    background-color: #212529;
-    color: white;
     border-radius: 10px;
-    display: flex;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
-.dashboard_calendar_item>h2 {
-    padding: 10px 0 10px 0;
-    margin: auto 10px auto auto;
+#calendarUsername {
+    padding: 15px 0 0 15px;
+    font-size: 1.5rem;
 }
 
-.dashboard_calendar_item>h3 {
-    margin: auto 0px auto 10px;
+#calendarTimestamp {
+    text-align: right;
+    padding: 15px 15px 0 0;
+    font-size: 2rem;
+}
+
+#calendarLessonType {
+    text-align: left;
+    padding: 0 0 0 15px;
+}
+
+#calendarEdit {
+    text-align: right;
+    padding: 0 15px 15px 0;
 }
