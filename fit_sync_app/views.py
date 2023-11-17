@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from fit_sync_app.models import TrainingSession
-from django.contrib.auth.models import User
+from accounts.models import CustomUser
 
 
 # Create your views here.
@@ -14,15 +14,20 @@ def dashboard(request):
 def schedule(request):
     current_user = request.user
     if request.method == 'POST':
-        created_for_user = request.POST.get('created_for_user')
-        type_of_lesson = request.POST.get('type_of_lesson')
-        time_of_lesson = request.POST.get('time_of_lesson')
+        student = request.POST.get('created_for_user')
+        lesson_type = request.POST.get('type_of_lesson')
+        time = request.POST.get('time_of_lesson')
         try:
-            form_for_user = User.objects.get(username=created_for_user)
-            TrainingSession.objects.create(created_by_user=current_user, created_for_user=form_for_user, type_of_lesson=type_of_lesson, time_of_lesson=time_of_lesson)
-        except User.DoesNotExist:
+            student = CustomUser.objects.get(username=student)
+            TrainingSession.objects.create(
+                trainer=current_user,
+                student=student,
+                lesson_type=lesson_type,
+                timestamp=time
+                )
+        except CustomUser.DoesNotExist:
             messages.error(request, 'User does not exist')
         
-    query = TrainingSession.objects.filter(created_by_user=current_user).order_by('time_of_lesson')
+    query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
                     
     return render(request, "schedule.html", {'query': query})
