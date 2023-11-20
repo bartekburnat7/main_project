@@ -33,7 +33,7 @@ form>input {
     font-size: 2rem;
 }
 
-#calendarLessonType {
+#calendarLessonExtra {
     text-align: left;
     padding: 0 0 0 15px;
 }
@@ -41,4 +41,9 @@ form>input {
 #calendarEdit {
     text-align: right;
     padding: 0 15px 15px 0;
+    display: flex;
+}
+
+#calendarEdit>button {
+    margin: auto 0 0 auto;
 }

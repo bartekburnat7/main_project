@@ -7,3 +7,5 @@ class TrainingSession(models.Model):
     student = models.CharField(max_length=256, blank=False)
     lesson_type = models.CharField(max_length=200, blank=False)
     timestamp = models.DateTimeField(blank=False)
+    price = models.IntegerField(blank=False, default=0)
+    

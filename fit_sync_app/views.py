@@ -17,13 +17,15 @@ def schedule(request):
         student = request.POST.get('created_for_user')
         lesson_type = request.POST.get('type_of_lesson')
         time = request.POST.get('time_of_lesson')
+        price = request.POST.get('price_of_lesson')
         try:
             student = CustomUser.objects.get(username=student)
             TrainingSession.objects.create(
                 trainer=current_user,
                 student=student,
                 lesson_type=lesson_type,
-                timestamp=time
+                timestamp=time,
+                price=price
                 )
         except CustomUser.DoesNotExist:
             messages.error(request, 'User does not exist')
