@@ -9,7 +9,9 @@ def index(request):
     return render(request, "index.html")
 
 def dashboard(request):
-    return render(request, "dashboard.html")
+    current_user = request.user
+    query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
+    return render(request, "dashboard.html", {'query': query})
 
 def schedule(request):
     current_user = request.user

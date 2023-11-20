@@ -14,15 +14,12 @@
 
 #dashboard_calendar {
     margin-bottom: 10px;
-    border: solid #60666d 1px;
-    border-radius: 10px;
 }
 
 .dashboard_calendar_item {
-    margin: 3px;
-    background-color: #212529;
-    color: white;
+    margin-top: 10px;
     border-radius: 10px;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.2);
     display: flex;
 }
 
@@ -35,11 +32,6 @@
     margin: auto 0px auto 10px;
 }
 
-#dashboard_earning {
-    border: solid #60666d 1px;
-    border-radius: 10px;
-}
-
 #dashboard_earning>p {
     margin: 0 10px 5px 10px;
 }
@@ -47,27 +39,8 @@
 
 /*  FEATURES LIST   */
 
-#features_list>div {
+.dashboard_features {
     margin-bottom: 10px;
-}
-
-#features_list>div>div {
-    margin-bottom: 10px;
-    border: solid #60666d 1px;
-    border-radius: 10px;
-    height: 100%;
-}
-
-#features_list h2 {
-    margin: 15px;
-}
-
-#features_list p {
-    padding: 0 10px 0 10px;
-}
-
-#features_list a {
-    margin: 10px;
 }
 
 

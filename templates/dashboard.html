@@ -16,17 +16,18 @@
             <div class="col-md-8">
                 <h1>Calendar</h1>
                 <div id="dashboard_calendar">
+                    {% for q in query.all|slice:"0:3" %}
                     <div class="dashboard_calendar_item">
                         <img src="" alt="">
-                        <h3 class="fs-5">Anna Kita</h3>
-                        <h2 class="fs-1">12:30</h2>
+                        <h3 class="fs-5">@{{ q.student }}</h3>
+                        <h2 class="fs-1">{{ q.timestamp }}</h2>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="col-md-4">
                 <h1>Earnings</h1>
-                <div id="dashboard_earning">
-                    <p class="fs-6 text-end">September 2023</p>
+                <div class="card" id="dashboard_earning">
                     <p class="fs-1 fw-bolder text-end">£3409.12</p>
                     <p class="fs-5">Pending Payments</p>
                     <p class="fs-4 fw-bolder text-end">£530.12</p>
@@ -35,29 +36,35 @@
                 </div>
             </div>
         </div>
-        <div class="row" id="features_list">
-            <div class="col-md-4 text-center">
-                <div>
-                    <h2 class="fs-3">Schedule Lesson</h2>
-                    <p class="fs-6 fw-light">Please utilize our software to conveniently book a professional gym lesson. Our platform offers a seamless scheduling experience, ensuring you can easily secure a spot for your desired session.</p>
-                    <a href={% url "schedule" %} class="btn btn-info fw-medium">Book Now</a> 
+        <div class="row">
+            <div class="dashboard_features col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Schedule Lesson</h5>
+                  <p class="card-text">Please utilize our software to conveniently book a professional gym lesson. Our platform offers a seamless scheduling experience, ensuring you can easily secure a spot for your desired session.</p>
+                  <a href={% url "schedule" %} class="btn btn-primary">Book Now</a>
                 </div>
+              </div>
             </div>
-            <div class="col-md-4 text-center">
-                <div>
-                    <h2 class="fs-3">Program Workouts</h2>
-                    <p class="fs-6 fw-light">Utilize our software to efficiently plan and organize workout routines. Our program offers comprehensive features to streamline the process, ensuring optimal results and maximizing productivity in your fitness regimen.</p>
-                    <a href="/program_workouts.html" class="btn btn-info fw-medium">Add Workout</a>
+            <div class="dashboard_features col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Program Workouts</h5>
+                  <p class="card-text">Utilize our software to efficiently plan and organize workout routines. Our program offers comprehensive features to streamline the process, ensuring optimal results and maximizing productivity in your fitness regimen.</p>
+                  <a href="#" class="btn btn-primary">Add Workout</a>
                 </div>
+              </div>
             </div>
-            <div class="col-md-4 text-center">
-                <div>
-                    <h2 class="fs-3">Virtual Programming</h2>
-                    <p class="fs-6 fw-light">Virtual Programming is a cutting-edge software solution designed to facilitate peer-to-peer training. This innovative platform enables seamless collaboration and knowledge sharing among individuals, regardless of geographical limitations.</p>
-                    <a href="/virtual_programming.html" class="btn btn-info fw-medium">Create Now</a>
+            <div class="dashboard_features col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Virtual Programming</h5>
+                    <p class="card-text">Virtual Programming is a software solution designed to facilitate peer-to-peer training. This innovative platform enables seamless collaboration and knowledge sharing among individuals, regardless of geographical limitations.</p>
+                    <a href="#" class="btn btn-primary">Create Now</a>
+                  </div>
                 </div>
-            </div>
-        </div>
+              </div>
+          </div>
         <footer class="main_footer bg-dark">
 
         </footer>
