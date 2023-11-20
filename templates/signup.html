@@ -6,16 +6,26 @@
     <link rel="stylesheet" type="text/css" href="/static/css/signup.css">
   </head>
   <body> 
-    <div id="signupFormContainer">
-      <form method="POST" action="{% url 'signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-      </form>
-    </div>
+    <form method="POST" action="/accounts/signup/" id="signupFormContainer">
+      {% csrf_token %}
+      <div>
+        <label for="id_username">Username:</label>
+        <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">  
+      </div>
+      <div>
+        <label for="id_password1">Password:</label>
+        <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+      </div>
+      <div>
+        <label for="id_password2">Password confirmation:</label>
+        <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">  
+      </div>
+      <div>
+        <label for="id_is_trainer">Is trainer:</label>
+        <input type="checkbox" name="is_trainer" id="id_is_trainer"> 
+      </div>      
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
   </body>
 
 {% endblock %}
