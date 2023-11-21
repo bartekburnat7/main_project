@@ -15,7 +15,7 @@
         
         <div class="input-group">
           <div class="input-group-text">@</div>
-          <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user">
+          <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user" required>
         </div>
 
         <select name="type_of_lesson" class="form-select" aria-label="Default select example" required>
@@ -24,14 +24,17 @@
           <option value="Online Lesson">Online Lesson</option>
         </select>
         <input type="datetime-local" name="time_of_lesson" class="form-control" required>
-        <input type="number" name="price_of_lesson" class="form-control" required>
-        <button type="submit" name="submit" class="btn btn-primary">Add+</button>
+        <div class="input-group">
+          <div class="input-group-text">£</div>
+          <input type="number" class="form-control" name="price_of_lesson" placeholder="Price" required>
+        </div>
+        <button type="submit" name="submit" class="btn btn-primary" id="create_lesson_btn">Add+</button>
       </form>
       
       <div id="calendar" class="col-md-8">
         {% for q in query %}
         <div class="dashboard_calendar_item row row-cols-md-2" href="#">
-          <p id="calendarUsername">@{{ q.student }}</p>
+          <p id="calendarUsername">@{{ q.student }}</p> 
           <p id="calendarTimestamp">{{ q.timestamp }}</p>
           <div id="calendarLessonExtra">
             <h1>£{{ q.price }}</h1>
@@ -43,7 +46,7 @@
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Edit</a></li>
-              <li><a class="dropdown-item" href="#">Delete</a></li>
+              <li><a class="dropdown-item" href={% url "deletelesson" q.id %}>Delete</a></li>
             </ul>
           </div>
         </div>

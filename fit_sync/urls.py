@@ -23,5 +23,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', views.index, name='home'),
     path('schedule/', views.schedule, name='schedule'),
-    path('dashboard/', views.dashboard, name='dashboard') 
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('schedule/<lesson_id>', views.DeleteLesson, name='deletelesson'),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from fit_sync_app.models import TrainingSession
 from accounts.models import CustomUser
@@ -35,3 +35,7 @@ def schedule(request):
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
                     
     return render(request, "schedule.html", {'query': query})
+
+def DeleteLesson(request, lesson_id):
+    TrainingSession.objects.get(id=lesson_id).delete()
+    return redirect("schedule")
