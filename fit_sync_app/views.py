@@ -39,3 +39,25 @@ def schedule(request):
 def DeleteLesson(request, lesson_id):
     TrainingSession.objects.get(id=lesson_id).delete()
     return redirect("schedule")
+
+def EditLesson(request, lesson_id):
+    editlesson = TrainingSession.objects.get(id=lesson_id)
+    
+    current_user = request.user
+    if request.method == 'POST':
+        student = request.POST.get('created_for_user')
+        lesson_type = request.POST.get('type_of_lesson')
+        time = request.POST.get('time_of_lesson')
+        price = request.POST.get('price_of_lesson')
+        try:
+            CustomUser.objects.get(username=student)
+            editlesson.student = student
+            editlesson.lesson_type = lesson_type
+            editlesson.timestamp = time
+            editlesson.price = price
+            editlesson.save()
+            return redirect("schedule")
+        except CustomUser.DoesNotExist:
+            messages.error(request, 'User does not exist')  
+    
+    return render(request, "update_lesson.html", {'editlesson': editlesson})

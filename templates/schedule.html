@@ -45,7 +45,7 @@
               More
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Edit</a></li>
+              <li><a class="dropdown-item" href={% url "editlesson" q.id%}>Edit</a></li>
               <li><a class="dropdown-item" href={% url "deletelesson" q.id %}>Delete</a></li>
             </ul>
           </div>

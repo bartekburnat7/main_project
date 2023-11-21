@@ -1,0 +1,23 @@
+{% extends "schedule.html" %}
+{% block content %}
+<h1>UPDATE LESSON</h1>
+<form method="POST" id="add_lesson_form" action="" class="col-md-4">
+    {% csrf_token %}
+    <div class="input-group">
+      <div class="input-group-text">@</div>
+      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user" value={{editlesson.student}} required>
+    </div>
+
+    <select name="type_of_lesson" class="form-select" aria-label="Default select example" required>
+      <option value="Gym Training">Gym Training</option>
+      <option value="Outside Training">Outside Training</option>
+      <option value="Online Lesson">Online Lesson</option>
+    </select>
+    <input type="datetime-local" name="time_of_lesson" class="form-control" value={{editlesson.timestamp}} required>
+    <div class="input-group">
+      <div class="input-group-text">£</div>
+      <input type="number" class="form-control" name="price_of_lesson" placeholder="Price" value={{editlesson.price}} required>
+    </div>
+    <button type="submit" name="submit" class="btn btn-primary" id="create_lesson_btn">Add+</button>
+</form>
+{% endblock %}
