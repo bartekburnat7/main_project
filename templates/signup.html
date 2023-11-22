@@ -5,27 +5,28 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/static/css/signup.css">
   </head>
-  <body> 
-    <form method="POST" action="/accounts/signup/" id="signupFormContainer">
-      {% csrf_token %}
-      <div>
-        <label for="id_username">Username:</label>
-        <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">  
-      </div>
-      <div>
-        <label for="id_password1">Password:</label>
-        <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
-      </div>
-      <div>
-        <label for="id_password2">Password confirmation:</label>
-        <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">  
-      </div>
-      <div>
-        <label for="id_is_trainer">Is trainer:</label>
-        <input type="checkbox" name="is_trainer" id="id_is_trainer"> 
-      </div>      
-      <button type="submit" class="btn btn-primary">Sign Up</button>
-    </form>
+  <body>
+    <div class="container" id="signupcontainer">
+      <h2>Sign Up</h2>
+      <form method="POST" action="/accounts/signup/" id="signupFormContainer">
+        {% csrf_token %}
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon1">@</span>
+          <input type="text" class="form-control" placeholder="Username" name="username" maxlength="150" required>  
+        </div>
+        <div>
+          <input type="password" class="form-control" placeholder="Password" name="password1" autocomplete="new-password" required>
+        </div>
+        <div>
+          <input type="password" class="form-control" placeholder="Re-Enter Password" name="password2" autocomplete="new-password" required="" id="id_password2">  
+        </div>
+        <div>
+          <label for="id_is_trainer">Create a Trainer Account:</label>
+          <input type="checkbox" name="is_trainer" id="id_is_trainer"> 
+        </div>      
+        <button type="submit" class="btn btn-primary" id="signupbutton">Sign Up</button>
+      </form>
+    </div>
   </body>
 
 {% endblock %}

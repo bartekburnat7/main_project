@@ -21,7 +21,7 @@ body {
     background-color: transparent;
 }
 
-#signupcontainer {
+#signincontainer {
     background-color: white;
     margin-top: 25px;
     border-radius: 10px;
@@ -30,7 +30,7 @@ body {
 }
 
 @media screen and (max-width: 500px) {
-    #signupcontainer {
+    #signincontainer {
         max-width: 95%;
     }
 }
@@ -43,7 +43,7 @@ form>div {
     margin: 0 0 10px 0;
 }
 
-#signupbutton {
+#signinbutton {
     width: 100%;
     margin: 0 0 10px 0;
 }
