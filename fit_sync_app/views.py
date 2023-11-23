@@ -9,12 +9,17 @@ def index(request):
     return render(request, "index.html")
 
 def dashboard(request):
+    if not request.user.is_authenticated:
+        return redirect("account_login")
     current_user = request.user
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
     return render(request, "dashboard.html", {'query': query})
 
 def schedule(request):
     current_user = request.user
+    if not request.user.is_authenticated:
+        return redirect("account_login")
+    
     if request.method == 'POST':
         student = request.POST.get('created_for_user')
         lesson_type = request.POST.get('type_of_lesson')
@@ -37,13 +42,22 @@ def schedule(request):
     return render(request, "schedule.html", {'query': query})
 
 def DeleteLesson(request, lesson_id):
-    TrainingSession.objects.get(id=lesson_id).delete()
+    current_user = request.user
+    if not request.user.is_authenticated:
+        return redirect("account_login")
+    lesson = TrainingSession.objects.get(id=lesson_id)
+    if current_user != lesson.trainer:
+        return redirect("schedule")
+    lesson.delete()
     return redirect("schedule")
 
 def EditLesson(request, lesson_id):
+    current_user = request.user
     editlesson = TrainingSession.objects.get(id=lesson_id)
     
-    current_user = request.user
+    if current_user != editlesson.trainer:
+        return redirect("schedule")
+    
     if request.method == 'POST':
         student = request.POST.get('created_for_user')
         lesson_type = request.POST.get('type_of_lesson')
@@ -58,6 +72,6 @@ def EditLesson(request, lesson_id):
             editlesson.save()
             return redirect("schedule")
         except CustomUser.DoesNotExist:
-            messages.error(request, 'User does not exist')  
+            return render(request, "update_lesson.html", {'error': "User does not exist"})
     
     return render(request, "update_lesson.html", {'editlesson': editlesson})

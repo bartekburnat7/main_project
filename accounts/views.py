@@ -3,6 +3,8 @@ from django.contrib.auth import login
 from .forms import SignupForm
 
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect("dashboard")   
     if request.method == 'POST':
         form = SignupForm(request.POST)
         print(request.POST)
@@ -12,4 +14,4 @@ def signup(request):
             return redirect('home')
     else:
         form = SignupForm()
-    return render(request, "signup.html", {'form': form})
+    return render(request, "signup.html")
