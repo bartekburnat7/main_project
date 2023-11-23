@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
 
 class SignupForm(UserCreationForm):
-    is_trainer = forms.BooleanField()
+    is_trainer = forms.BooleanField(required=False)
 
     class Meta:
         model = CustomUser
