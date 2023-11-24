@@ -13,6 +13,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h1>Calendar</h1>
+                <a href={% url "schedule" %} class="btn btn-light">No Lessons Found, click to create a Lesson</a>
                 <div id="dashboard_calendar">
                     {% for q in query.all|slice:"0:3" %}
                     <div class="dashboard_calendar_item">

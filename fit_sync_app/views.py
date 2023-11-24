@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from fit_sync_app.models import TrainingSession
 from accounts.models import CustomUser
@@ -13,6 +13,7 @@ def dashboard(request):
         return redirect("account_login")
     current_user = request.user
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
+    GetLesson(query)
     return render(request, "dashboard.html", {'query': query})
 
 def schedule(request):
@@ -38,8 +39,10 @@ def schedule(request):
             messages.error(request, 'User does not exist')
         
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
+    
+    dashboard_error = GetLesson(query)
                     
-    return render(request, "schedule.html", {'query': query})
+    return render(request, "schedule.html", {'query': query, 'dashboard_error': dashboard_error})
 
 def DeleteLesson(request, lesson_id):
     current_user = request.user
@@ -75,3 +78,11 @@ def EditLesson(request, lesson_id):
             return render(request, "update_lesson.html", {'error': "User does not exist"})
     
     return render(request, "update_lesson.html", {'editlesson': editlesson})
+
+def GetLesson(input):
+    if input.count() == 0:
+        error =  "No lessons found"
+        return error
+    else:
+        error = ""
+        return error
