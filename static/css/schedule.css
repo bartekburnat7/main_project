@@ -16,6 +16,10 @@ form>* {
     margin: 10px 0px 10px 0px;
 }
 
+#form_error {
+    color: red;
+}
+
 #create_lesson_btn {
     margin: 0px;
 }
@@ -55,4 +59,8 @@ form>* {
 
 #calendarEdit>button {
     margin: auto 0 0 auto;
+}
+
+#EmptyCalendar {
+    text-align: center;
 }

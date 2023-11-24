@@ -18,6 +18,7 @@ def dashboard(request):
 
 def schedule(request):
     current_user = request.user
+    form_error = ""
     if not request.user.is_authenticated:
         return redirect("account_login")
     
@@ -36,13 +37,13 @@ def schedule(request):
                 price=price
                 )
         except CustomUser.DoesNotExist:
-            messages.error(request, 'User does not exist')
+            form_error = "User does not exist"
         
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
     
     dashboard_error = GetLesson(query)
                     
-    return render(request, "schedule.html", {'query': query, 'dashboard_error': dashboard_error})
+    return render(request, "schedule.html", {'query': query, 'dashboard_error': dashboard_error, 'form_error': form_error,})
 
 def DeleteLesson(request, lesson_id):
     current_user = request.user

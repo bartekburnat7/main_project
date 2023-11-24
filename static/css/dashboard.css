@@ -16,21 +16,25 @@
     margin-bottom: 10px;
 }
 
-.dashboard_calendar_item {
+#dashboard_calendar_item {
     margin-top: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.2);
     display: flex;
 }
 
-.dashboard_calendar_item>h2 {
+#dashboard_calendar_item>h3 {
     padding: 10px 0 10px 0;
     margin: auto 10px auto auto;
+    text-align: right;
 }
 
-.dashboard_calendar_item>h3 {
+#dashboard_calendar_item>h2 {
     margin: auto 0px auto 10px;
 }
+
+
+/*  DASHBOARD EARNING  */
 
 #dashboard_earning>p {
     margin: 0 10px 5px 10px;

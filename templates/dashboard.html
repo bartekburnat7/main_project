@@ -13,13 +13,13 @@
         <div class="row">
             <div class="col-md-8">
                 <h1>Calendar</h1>
-                <a href={% url "schedule" %} class="btn btn-light">No Lessons Found, click to create a Lesson</a>
+                <p id="EmptyCalendar">{{dashboard_error}}</p>
                 <div id="dashboard_calendar">
                     {% for q in query.all|slice:"0:3" %}
-                    <div class="dashboard_calendar_item">
+                    <div id="dashboard_calendar_item">
                         <img src="" alt="">
-                        <h3 class="fs-5">@{{ q.student }}</h3>
-                        <h2 class="fs-1">{{ q.timestamp }}</h2>
+                        <h2 class="fs-3">@{{ q.student }}</h2>
+                        <h3 class="fs-4">{{ q.timestamp }}</h3>
                     </div>
                     {% endfor %}
                 </div>
