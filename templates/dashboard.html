@@ -12,8 +12,13 @@
     <body>
         <div class="row">
             <div class="col-md-8">
+              <div id="calendar_title">
                 <h1>Calendar</h1>
+                <a href={% url "schedule" %} class="btn btn-light">Add+</a>
+              </div>
+              {% if dashboard_error %}
                 <p id="EmptyCalendar">{{dashboard_error}}</p>
+              {% endif %}
                 <div id="dashboard_calendar">
                     {% for q in query.all|slice:"0:3" %}
                     <div id="dashboard_calendar_item">
@@ -28,10 +33,10 @@
                 <h1>Earnings</h1>
                 <div class="card" id="dashboard_earning">
                     <p class="fs-1 fw-bolder text-end">£3409.12</p>
-                    <p class="fs-5">Pending Payments</p>
-                    <p class="fs-4 fw-bolder text-end">£530.12</p>
-                    <p class="fs-5">Hours Served</p>
-                    <p class="fs-4 fw-bolder text-end">23.45/hrs</p>
+                    <p class="fs-5">Gross Income</p>
+                    <p class="fs-4 fw-bolder text-end">£{{total_price}}</p>
+                    <p class="fs-5">Lesson's Booked</p>
+                    <p class="fs-4 fw-bolder text-end">{{lesson_count}}</p>
                 </div>
             </div>
         </div>

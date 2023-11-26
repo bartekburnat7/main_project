@@ -12,6 +12,11 @@
     max-width: 1500px;
 }
 
+#calendar_title {
+    display: flex;
+    justify-content: space-between;
+}
+
 #dashboard_calendar {
     margin-bottom: 10px;
 }
