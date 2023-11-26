@@ -12,7 +12,9 @@
     <div class="row">
       <form method="POST" id="add_lesson_form" action="" class="col-md-4">
         {% csrf_token %}
-        <p id="form_error">{{ form_error }}</p>
+        {% if form_error %}
+          <p id="form_error">{{ form_error }}</p>
+        {% endif %}
         <div class="input-group">
           <div class="input-group-text">@</div>
           <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user" required>
@@ -23,10 +25,10 @@
           <option value="Outside Training">Outside Training</option>
           <option value="Online Lesson">Online Lesson</option>
         </select>
-        <input type="datetime-local" name="time_of_lesson" class="form-control" required>
+        <input type="datetime-local" name="time_of_lesson" class="form-control"  id="dateInput" min="" required>
         <div class="input-group">
           <div class="input-group-text">£</div>
-          <input type="number" class="form-control" name="price_of_lesson" placeholder="Price" required>
+          <input type="number" class="form-control" name="price_of_lesson" placeholder="Price" min="0" required>
         </div>
         <button type="submit" name="submit" class="btn btn-primary" id="create_lesson_btn">Add+</button>
       </form>
@@ -55,5 +57,9 @@
       </div>
     </div>
   </body>
+  <script>
+    const today = new Date().toISOString().slice(0, 16);
+    document.getElementById('dateInput').min = today;
+  </script>
     {% endblock %}
 </html>

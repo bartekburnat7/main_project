@@ -13,8 +13,10 @@ def dashboard(request):
         return redirect("account_login")
     current_user = request.user
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
-    GetLesson(query)
-    return render(request, "dashboard.html", {'query': query})
+    return render(request, "dashboard.html", {'query': query,
+                                              'dashboard_error': GetLesson(query),
+                                              'lesson_count': GetLessonCount(query),
+                                              'total_price': LessonTotalPrice(query),})
 
 def schedule(request):
     current_user = request.user
@@ -40,10 +42,8 @@ def schedule(request):
             form_error = "User does not exist"
         
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
-    
-    dashboard_error = GetLesson(query)
                     
-    return render(request, "schedule.html", {'query': query, 'dashboard_error': dashboard_error, 'form_error': form_error,})
+    return render(request, "schedule.html", {'query': query, 'dashboard_error': GetLesson(query), 'form_error': form_error,})
 
 def DeleteLesson(request, lesson_id):
     current_user = request.user
@@ -87,3 +87,12 @@ def GetLesson(input):
     else:
         error = ""
         return error
+
+def GetLessonCount(input):
+    return input.count()
+
+def LessonTotalPrice(input):
+    total = 0
+    for i in input:
+        total = total + i.price
+    return total
