@@ -1,0 +1,26 @@
+#updatecontainer {
+    background-color: white;
+    margin-top: 25px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+}
+
+@media screen and (max-width: 600px) {
+    #updatecontainer {
+        max-width: 95%;
+    }
+}
+
+h2 {
+    padding: 10px 0 10px 0;
+}
+
+form>div {
+    margin: 0 0 10px 0;
+}
+
+#savebutton {
+    width: 100%;
+    margin: 0 0 10px 0;
+}

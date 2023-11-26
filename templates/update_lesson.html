@@ -1,23 +1,46 @@
 {% extends "schedule.html" %}
 {% block content %}
-<h1>UPDATE LESSON</h1>
-<form method="POST" id="add_lesson_form" action="" class="col-md-4">
-    {% csrf_token %}
-    <div class="input-group">
-      <div class="input-group-text">@</div>
-      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user" value={{editlesson.student}} required>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script  src="https://momentjs.com/downloads/moment.js"></script>
+    <link rel="stylesheet" href="{% static 'css/update_lesson.css' %}">
+  </head>
+  <body>
+    <div class="container" id="updatecontainer">
+      <h1>Update Lesson</h1>
+      <form method="POST" id="add_lesson_form" action="">
+          {% csrf_token %}
+          <div class="input-group">
+            <div class="input-group-text">@</div>
+            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user" value={{editlesson.student}} required>
+          </div>
+          <div>
+            <select name="type_of_lesson" class="form-select" aria-label="Default select example" required>
+              <option value="Gym Training">Gym Training</option>
+              <option value="Outside Training">Outside Training</option>
+              <option value="Online Lesson">Online Lesson</option>
+            </select>
+          </div>
+          <div>
+            <input type="datetime-local" name="time_of_lesson" class="form-control" id="dateInput" min="" value="" required>
+          </div>
+          <div class="input-group">
+            <div class="input-group-text">£</div>
+            <input type="number" class="form-control" name="price_of_lesson" placeholder="Price" value={{editlesson.price}} min="0" required>
+          </div>
+          <button type="submit" name="submit" class="btn btn-primary" id="savebutton">Save</button>
+      </form>
     </div>
-
-    <select name="type_of_lesson" class="form-select" aria-label="Default select example" required>
-      <option value="Gym Training">Gym Training</option>
-      <option value="Outside Training">Outside Training</option>
-      <option value="Online Lesson">Online Lesson</option>
-    </select>
-    <input type="datetime-local" name="time_of_lesson" class="form-control" value={{editlesson.timestamp}} required>
-    <div class="input-group">
-      <div class="input-group-text">£</div>
-      <input type="number" class="form-control" name="price_of_lesson" placeholder="Price" value={{editlesson.price}} required>
-    </div>
-    <button type="submit" name="submit" class="btn btn-primary" id="create_lesson_btn">Add+</button>
-</form>
+    <script>
+      const time = '{{editlesson.timestamp.hour}}:{{editlesson.timestamp.minute}}'; // Replace this with your 12-hour time string
+      const formattedTime = moment(time, 'hh:mm A').format('HH:mm');
+      const inputDate = '{{editlesson.timestamp.year}}-{{editlesson.timestamp.month}}-{{editlesson.timestamp.day}}T' + formattedTime;
+      const today = new Date().toISOString().slice(0, 16);
+      document.getElementById('dateInput').min = today;
+      document.getElementById('dateInput').value = inputDate;
+    </script>
+  </body>
+</html>
 {% endblock %}
