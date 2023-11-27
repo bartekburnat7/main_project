@@ -1,0 +1,34 @@
+{% extends "dashboard_navbar.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FitSync</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type='text/css' href={% static "css/dashboard.css" %}>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-8">
+                <div id="calendar_title">
+                    <h1>Calendar</h1>
+                </div>
+                {% if dashboard_error %}
+                <p id="EmptyCalendar">{{dashboard_error}}</p>
+                {% endif %}
+                <div id="dashboard_calendar">
+                    {% for q in query.all|slice:"0:3" %}
+                    <div id="dashboard_calendar_item">
+                        <img src="" alt="">
+                        <h2 class="fs-3">@{{ q.student }}</h2>
+                        <h3 class="fs-4">{{ q.timestamp }}</h3>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}

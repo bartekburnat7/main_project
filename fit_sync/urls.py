@@ -28,6 +28,7 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('schedule/', views.schedule, name='schedule'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('student-dashboard/', views.student_dashboard, name='student_dashboard'),
     path('schedule/<lesson_id>', views.DeleteLesson, name='deletelesson'),
     path('update_lesson/<lesson_id>', views.EditLesson, name='editlesson'),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),

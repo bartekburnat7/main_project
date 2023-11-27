@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from fit_sync_app.models import TrainingSession
 from accounts.models import CustomUser
@@ -9,8 +9,9 @@ def index(request):
     return render(request, "index.html")
 
 def dashboard(request):
-    if not request.user.is_authenticated:
-        return redirect("account_login")
+    auth_result = AuthCheck(request)
+    if auth_result:
+        return auth_result    
     current_user = request.user
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
     return render(request, "dashboard.html", {'query': query,
@@ -18,11 +19,17 @@ def dashboard(request):
                                               'lesson_count': GetLessonCount(query),
                                               'total_price': LessonTotalPrice(query),})
 
+def student_dashboard(request):
+    current_user = request.user
+    query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
+    return render(request, "student_dashboard.html", {'query': query})
+
 def schedule(request):
     current_user = request.user
     form_error = ""
-    if not request.user.is_authenticated:
-        return redirect("account_login")
+    auth_result = AuthCheck(request)
+    if auth_result:
+        return auth_result
     
     if request.method == 'POST':
         student = request.POST.get('created_for_user')
@@ -47,8 +54,9 @@ def schedule(request):
 
 def DeleteLesson(request, lesson_id):
     current_user = request.user
-    if not request.user.is_authenticated:
-        return redirect("account_login")
+    auth_result = AuthCheck(request)
+    if auth_result:
+        return auth_result
     lesson = TrainingSession.objects.get(id=lesson_id)
     if current_user != lesson.trainer:
         return redirect("schedule")
@@ -58,6 +66,10 @@ def DeleteLesson(request, lesson_id):
 def EditLesson(request, lesson_id):
     current_user = request.user
     editlesson = TrainingSession.objects.get(id=lesson_id)
+    
+    auth_result = AuthCheck(request)
+    if auth_result:
+        return auth_result
     
     if current_user != editlesson.trainer:
         return redirect("schedule")
@@ -79,6 +91,12 @@ def EditLesson(request, lesson_id):
             return render(request, "update_lesson.html", {'error': "User does not exist"})
     
     return render(request, "update_lesson.html", {'editlesson': editlesson})
+
+def AuthCheck(request):
+    if not request.user.is_authenticated:
+        return redirect("account_login")
+    elif request.user.is_trainer == False:
+        return redirect("student_dashboard")
 
 def GetLesson(input):
     if input.count() == 0:
