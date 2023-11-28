@@ -14,6 +14,9 @@
       <div>
         <form class="login" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
+          {% if form %}
+            <p>{{ form.non_field_errors.as_text }}</p>
+          {% endif %}
           <div class="input-group">
             <span class="input-group-text" id="basic-addon1">@</span>
             <input type="text" class="form-control" name="login" placeholder="Username" autocomplete="username" maxlength="150" id="id_login" required>
