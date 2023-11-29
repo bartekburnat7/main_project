@@ -4,9 +4,17 @@ FitSync is a Full-Stack online application created for personal trainers to keep
 
 I created this full-stack website using Django framework, Python, HTML/CSS Bootstrap and JavaScript. I used ElephantSQl as the database of choice to store the usernames and the Scheduled Lessons.
 
-# User Experience
+## Table of Contents
 
-Target client for the Website:
+-   User Interface / User Experience
+-   Features and Design
+-   
+
+## User Interface / User Experience
+
+While creating the website I decided to utilize Bootstrap 5 to create a responsive website for mobile and desktop users that has a very clean and professional layout. The website should have content the User can read before signing up to the service so they know if this application suits them. Users of all ages should be able to navigate through the website because each trainer might have different type of students this is very important.
+
+####    Target client for the Website:
 
 -   Based in the UK
 -   Personal Trainer
@@ -36,18 +44,33 @@ Target client for the Website:
 
 ###     Scheduling
 -   ####    Trainer
-    - As a trainer I can create a lesson by entering the Students username, type of lesson, timestamp and price.
-    - As a trainer I can view the lessons with all the details displayed in chronological order.
-    - As a trainer I can seamlessly edit and delete each lesson by clicking the "more" button, pressing the desired option.
+    - #11 As a trainer I can create a lesson by entering the Students username, type of lesson, timestamp and price.
+    - #12 As a trainer I can view the lessons with all the details displayed in chronological order.
+    - #13 As a trainer I can seamlessly edit and delete each lesson by clicking the "more" button and then pressing the desired option.
+
+## Idea and Plan
+
+The idea for this project came to when I was looking for a business idea to create within a online application that could be used commercially and all over the world without any constraints. As I am familiar with the gym I looked for a personal trainer in my area but it was very difficult to do so and ended up not finding anything at all due to no information on the matter.
+
+My plan was to create an application with tools that Personal Trainers can use to schedule lessons, create workout plans and much more. I would first create great tools that would attract new trainers to sign up for a trainers account, then add a feature that would make finding these trainers easy by people that are seeking personal training in their area.
+
+I asked a few personal trainers online what type of features they would like to see in the application and these are the results from most important to least:
+
+-   Scheduling System
+-   Online Workout Programming
+-   Virtual Training(P2P)
+-   Payments
+-   Late Fees
+
+### Agile
+
+For this project I decided to use GitHub's issues tab and list all the challenges a trainer or user faces and give solutions under each one. Using the Agile methodology I planned out how I would tackle each issue and after developing the feature, I would assess if this feature is functional and addresses the issue correctly. If I was unhappy with the feature I would see that something is missing develop an additional solution to the feature.
+
+##  Features and Design
 
 
 
-
-
-
-
-
-#   Credits
+##  Credits
 
 
 Codemy.com
