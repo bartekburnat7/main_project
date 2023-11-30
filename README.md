@@ -6,8 +6,8 @@ I created this full-stack website using Django framework, Python, HTML/CSS Boots
 
 ## Table of Contents
 
--   User Interface / User Experience
--   Features and Design
+* [User Interface / User Experience](#user-interface--user-experience)
+* [Features and Design](#features-and-design)
 -   
 
 ## User Interface / User Experience
@@ -70,7 +70,7 @@ For this project I decided to use GitHub's issues tab and list all the challenge
 
 ### Wireframes
 
-I decided to sketch my rough ideas of how the layout of the pages would look using moqups.com so that I have a design that I can develop off of. Some changes might have been implemented due to finding a better way of displaying the information or due to adding an extra feature.
+I sketch my ideas of how the layout of the pages would look using moqups.com, so that I have a design that I can develop off of. Some changes might have been implemented due to finding a better way of displaying the information or due to adding an extra feature:
 
 <details><summary>Home Page</summary>
 <img src="images/home_page.JPG">
@@ -84,17 +84,64 @@ I decided to sketch my rough ideas of how the layout of the pages would look usi
 <details><summary>Scheduling for Trainers</summary>
 <img src="images/dashboard_scheduling_wireframe.JPG">
 </details>
+<br>
+
+As I used the mobile first approach I also designed wireframes of what these pages would look like on a smaller device. I wanted to keep the design simple to not clatter the screen and make it difficult to follow or read:
+
+<details><summary>Home Page</summary>
+<img src="images/home_page_phone.JPG">
+</details>
+<details><summary>Dashboard for Trainers</summary>
+<img src="images/dashboard_trainer_wireframe_phone.JPG">
+</details>
+<details><summary>Dashboard for Students</summary>
+<img src="images/dashboard_Student_wireframe_phone.JPG">
+</details>
+<details><summary>Scheduling for Trainers</summary>
+<img src="images/dashboard_scheduling_wireframe_phone.JPG">
+</details>
+<br>
 
 Every feature that has been added, targets one or potentially more user stories in order to solve the problem of the user. While planning the layout I made sure each feature has a similar design that looks familiar, which improves the ease of navigating through out the website.
 
 ### Navigation
 -   #### Navigation Bar
-    There are a few type of navigation bars implemented for visiting users and logged in users, furthermore, there is a different navigation bar for the dashboard features that differs for students and trainers.
+    There are a few type of navigation bars implemented for visiting users and logged in users, furthermore, there is a different navigation bar for the dashboard features that differs for students and trainers. For mobile users the nav bar becomes a hamburger that reveals the options when pressed.
 
-    <details><summary>Navigation bar for home pages ( Logged Out )</summary><img src=""></details>
-    <details><summary>Navigation bar for home pages ( Logged In )</summary><img src=""></details>
-    <details><summary>Navigation bar for Dashboard ( Trainer Account )</summary><img src=""></details>
-    <details><summary>Navigation bar for Dashboard ( Student Account )</summary><img src=""></details>
+    <details><summary>Navigation bar for home pages ( Logged Out )</summary>
+    <img src="images/nav_bar_lo.JPG">#
+    </details>
+    <details><summary>Navigation bar for home pages ( Logged In )</summary>
+    <img src="images/nav_bar_li.JPG">
+    </details>
+    <details><summary>Navigation bar for home pages ( Mobile )</summary>
+    <img src="images/nav_bar_mobile.JPG">
+    </details>
+    <br>
+    The dashboard visually look the same, the only difference between the two is the the list og pages inside the hamburger that appears from the right when pressed:
+    <details><summary>Navigation bar for Dashboard ( Trainer Account ) - Dashboard, scheduling, homepage, log out</summary>
+    <img src="images/nav_bar_dashboard.JPG">
+    </details>
+    <details><summary>Navigation bar for Dashboard ( Student Account ) - Dashboard, homepage, log out</summary>
+    <img src="images/nav_bar_dashboard.JPG">
+    </details>
+
+### User Registration and Authentication
+
+-   #### Sign up
+    The website contains the Sign up page where the user is required to create a new username and a password, then the user need to make the choice if he wants to create a student account by default or select the checkbox and create a trainer account.
+
+    <details><summary>Sign up page</summary>
+    <img src="images/">
+    </details>
+    <br>
+
+    The sign up form also performs checks in the backend if the username already exists, the passwords is too weak or similar to the username or if the password is not correctly re-typed.
+
+    <details><summary>Sign up page form error messages</summary>
+    <img src="images/">
+    </details>
+    <br>
 
 ##  Credits
 
