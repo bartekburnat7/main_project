@@ -68,7 +68,33 @@ For this project I decided to use GitHub's issues tab and list all the challenge
 
 ##  Features and Design
 
+### Wireframes
 
+I decided to sketch my rough ideas of how the layout of the pages would look using moqups.com so that I have a design that I can develop off of. Some changes might have been implemented due to finding a better way of displaying the information or due to adding an extra feature.
+
+<details><summary>Home Page</summary>
+<img src="images/home_page.JPG">
+</details>
+<details><summary>Dashboard for Trainers</summary>
+<img src="images/dashboard_trainer_wireframe.JPG">
+</details>
+<details><summary>Dashboard for Students</summary>
+<img src="images/dashboard_Student_wireframe.JPG">
+</details>
+<details><summary>Scheduling for Trainers</summary>
+<img src="images/dashboard_scheduling_wireframe.JPG">
+</details>
+
+Every feature that has been added, targets one or potentially more user stories in order to solve the problem of the user. While planning the layout I made sure each feature has a similar design that looks familiar, which improves the ease of navigating through out the website.
+
+### Navigation
+-   #### Navigation Bar
+    There are a few type of navigation bars implemented for visiting users and logged in users, furthermore, there is a different navigation bar for the dashboard features that differs for students and trainers.
+
+    <details><summary>Navigation bar for home pages ( Logged Out )</summary><img src=""></details>
+    <details><summary>Navigation bar for home pages ( Logged In )</summary><img src=""></details>
+    <details><summary>Navigation bar for Dashboard ( Trainer Account )</summary><img src=""></details>
+    <details><summary>Navigation bar for Dashboard ( Student Account )</summary><img src=""></details>
 
 ##  Credits
 
