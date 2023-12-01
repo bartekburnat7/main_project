@@ -21,10 +21,14 @@ from django.contrib import admin
 from django.urls import path , include
 from fit_sync_app import views
 
+from allauth.account.views import signup, login, logout
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('accounts/', include('allauth.urls')),
+    path("account/signup/", signup, name="account_signup"),
+    path("account/login/", login, name="account_login"),
+    path("account/logout/", logout, name="account_logout"),
     path('', views.index, name='home'),
     path('schedule/', views.schedule, name='schedule'),
     path('dashboard/', views.dashboard, name='dashboard'),
