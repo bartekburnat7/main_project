@@ -190,6 +190,22 @@ The backend code check if the logged in user is a "student account" or a "traine
 
 The scheduling dashboard is split into the submit form and a container that displays all the active lessons that have been created. The form requires the trainer to enter the students username, type of lesson, date of the lesson and finally the price. If the username entered into the form doesn't exist, it will return an error message saying "User does not exist".
 
+<details><summary>Schedule Page</summary>
+<img src="">
+</details>
+<details><summary>Schedule error messages</summary>
+<img src="">
+</details>
+<br>
+
+Each lesson displayed has a "more" button when pressed drops down two options which are "Edit" and "delete". 
+
+#### Edit
+-   When you press the "edit" option you will be redirected to a form where you can manipulate and edit the information to the lesson of choice. Once you edited the lesson accordingly, all you need to do is hit the "save" button and the lesson will be saved.
+
+#### Delete
+-   When you hit the "delete" option, the lesson of choice will be automatically deleted for the trainer and for the student.
+
 ## Technologies Used
 
 ### Programming languages
