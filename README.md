@@ -162,6 +162,34 @@ Every feature that has been added, targets one or potentially more user stories 
 
     If an already logged in user tries to enter the log-in page they will be automatically redirected to the dashboard, the same happens for people that are logging in. When the user wants to log out they can do so by clicking the "log out" button which is placed in either the homepage nav bar or the dashboard navigation bar.
 
+### Dashboard
+
+The backend code check if the logged in user is a "student account" or a "trainer account" and redirects each user accordingly to the pages with the correct permissions assigned to the account type. Explained below:
+
+-   __Student Dashboard__
+    
+    The student dashboard consist of two elements/features which are, the calendar where the student can see their upcoming lessons and the second feature is the container where the user can accept or cancel any incoming lessons created by the trainer under their username.
+
+    <details><summary>Student Dashboard</summary>
+    <img src="">
+    </details>
+    <br>
+
+    This account type is forbidden from scheduling lessons for other usernames, if this account type tries to access the scheduling page they will be automatically redirected back to the designated dashboard.
+
+-   __Trainer Dashboard__
+    
+    The trainer dashboard consists of three elements/features which are, the calendar where the trainer can see upcoming lessons which they created(from earliest to lates). The second feature is the earnings container which displays the amount of money that will be earned from all the lessons added up before and after fees. Lastly, there is a tab added with all the features accessible by the trainer account type and any features that will be available in the future.
+
+    <details><summary>Trainer Dashboard</summary>
+    <img src="">
+    </details>
+    <br>
+
+### Scheduling
+
+The scheduling dashboard is split into the submit form and a container that displays all the active lessons that have been created. The form requires the trainer to enter the students username, type of lesson, date of the lesson and finally the price. If the username entered into the form doesn't exist, it will return an error message saying "User does not exist".
+
 ## Technologies Used
 
 ### Programming languages
