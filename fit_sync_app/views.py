@@ -21,7 +21,7 @@ def dashboard(request):
 
 def student_dashboard(request):
     current_user = request.user
-    query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
+    query = TrainingSession.objects.filter(student=current_user).order_by('timestamp')
     return render(request, "student_dashboard.html", {'query': query})
 
 def schedule(request):
