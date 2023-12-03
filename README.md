@@ -7,8 +7,9 @@ I created this full-stack website using Django framework, Python, HTML/CSS Boots
 ## Table of Contents
 
 * [User Interface / User Experience](#user-interface--user-experience)
-* [Features and Design](#features-and-design)
--   
+* [Design](#design)
+* [Features](#features)
+
 
 ## User Interface / User Experience
 
@@ -66,7 +67,7 @@ I asked a few personal trainers online what type of features they would like to 
 
 For this project I decided to use GitHub's issues tab and list all the challenges a trainer or user faces and give solutions under each one. Using the Agile methodology I planned out how I would tackle each issue and after developing the feature, I would assess if this feature is functional and addresses the issue correctly. If I was unhappy with the feature I would see that something is missing develop an additional solution to the feature.
 
-##  Features and Design
+##  Design
 
 ### Wireframes
 
@@ -104,6 +105,8 @@ As I used the mobile first approach I also designed wireframes of what these pag
 
 Every feature that has been added, targets one or potentially more user stories in order to solve the problem of the user. While planning the layout I made sure each feature has a similar design that looks familiar, which improves the ease of navigating through out the website.
 
+## Features
+
 ### Navigation
 -   #### Navigation Bar
     There are a few type of navigation bars implemented for visiting users and logged in users, furthermore, there is a different navigation bar for the dashboard features that differs for students and trainers. For mobile users the nav bar becomes a hamburger that reveals the options when pressed.
@@ -132,17 +135,50 @@ Every feature that has been added, targets one or potentially more user stories 
     The website contains the Sign up page where the user is required to create a new username and a password, then the user need to make the choice if he wants to create a student account by default or select the checkbox and create a trainer account.
 
     <details><summary>Sign up page</summary>
-    <img src="images/">
+    <img src="images/sign_up_page.JPG">
     </details>
     <br>
 
     The sign up form also performs checks in the backend if the username already exists, the passwords is too weak or similar to the username or if the password is not correctly re-typed.
 
     <details><summary>Sign up page form error messages</summary>
-    <img src="images/">
+    <img src="images/sign_up_errors.JPG">
     </details>
     <br>
 
+-   #### log In
+    The log-in page visually shares a lot of similarities with the sign up page, this is done to make the pages more familiar to the user. The log-in page is kept clean and labeled to improve the accessibility and improves the SEO of the page.
+
+    <details><summary>Log In page</summary>
+    <img src="images/log_in_page.JPG">
+    </details>
+    <br>
+
+    The log-in page also returns an error message if the entered username or password is incorrect:
+    <details><summary>Log In page error messages</summary>
+    <img src="images/log_in_errors.JPG">
+    </details>
+    <br>
+
+    If an already logged in user tries to enter the log-in page they will be automatically redirected to the dashboard, the same happens for people that are logging in. When the user wants to log out they can do so by clicking the "log out" button which is placed in either the homepage nav bar or the dashboard navigation bar.
+
+## Technologies Used
+
+### Programming languages
+-   HTML/CSS
+-   Python
+-   JavaScript
+
+### Frameworks
+-   __Djnago__ - I used the django framework which uses python to handle all the backend code.
+-   __Bootstrap 5__ - I used bootstrap as it offers easy professional styling for web pages and includes mobile responsiveness.
+
+### Extra Libraries or Services
+-   __allauth__ - This is a django library that handles user input like signing up or login into the website.
+-   __psycopg2__ - this library helps django connect with the elepthantSQL database.
+-   __dj-database__ - Makes managing databases very simple.
+-   __gunicorn__ - this is a WSGI HTTP server that was used.
+-   __Git/github__ - I used these services to version control the project and write out all the user stories out in the issues tab.
 ##  Credits
 
 
