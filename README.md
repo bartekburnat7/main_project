@@ -11,6 +11,7 @@ I created this full-stack website using Django framework, Python, HTML/CSS Boots
 * [Features](#features)
 * [Database Design](#database-design)
 * [Technologies Used](#technologies-used)
+* [Testing](#testing)
 * [Credits](#credits)
 
 
@@ -124,7 +125,8 @@ Every feature that has been added, targets one or potentially more user stories 
     <img src="images/nav_bar_mobile.JPG">
     </details>
     <br>
-    The dashboard visually look the same, the only difference between the two is the the list og pages inside the hamburger that appears from the right when pressed:
+    The dashboard visually look the same, the only difference between the two is the the list og pages inside the hamburger that appears from the right when pressed.
+    
     <details><summary>Navigation bar for Dashboard ( Trainer Account ) - Dashboard, scheduling, homepage, log out</summary>
     <img src="images/nav_bar_dashboard.JPG">
     </details>
@@ -216,6 +218,8 @@ Each lesson displayed has a "more" button when pressed drops down two options wh
 ## Database Design
 
 ## Technologies Used
+
+## Testing
 
 ### Programming languages
 -   HTML/CSS

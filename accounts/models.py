@@ -7,3 +7,6 @@ class CustomUser(AbstractUser):
     
     def __str__(self):
         return self.username
+
+class UserSettings(models.Model):
+    user = models.OneToOneField(CustomUser, blank=False, on_delete=models.CASCADE, related_name="user")
