@@ -2,13 +2,16 @@
 
 FitSync is a Full-Stack online application created for personal trainers to keep track of their students and schedule lessons with ease so that the students can check when their next lesson will take place. The website allows to create lessons for the user of choice that include the date, time and price. Each created lesson then can be edited or cancelled by the trainer and viewed by the following student.
 
-I created this full-stack website using Django framework, Python, HTML/CSS Bootstrap and JavaScript. I used ElephantSQl as the database of choice to store the usernames and the Scheduled Lessons.
+I created this full-stack website using Django framework, Python, HTML/CSS Bootstrap and JavaScript. I used ElephantSQL as the database of choice to store the usernames and the Scheduled Lessons.
 
 ## Table of Contents
 
 * [User Interface / User Experience](#user-interface--user-experience)
 * [Design](#design)
 * [Features](#features)
+* [Database Design](#database-design)
+* [Technologies Used](#technologies-used)
+* [Credits](#credits)
 
 
 ## User Interface / User Experience
@@ -182,7 +185,7 @@ The backend code check if the logged in user is a "student account" or a "traine
     The trainer dashboard consists of three elements/features which are, the calendar where the trainer can see upcoming lessons which they created(from earliest to lates). The second feature is the earnings container which displays the amount of money that will be earned from all the lessons added up before and after fees. Lastly, there is a tab added with all the features accessible by the trainer account type and any features that will be available in the future.
 
     <details><summary>Trainer Dashboard</summary>
-    <img src="">
+    <img src="images/trainer_dashboard.jpg">
     </details>
     <br>
 
@@ -191,10 +194,10 @@ The backend code check if the logged in user is a "student account" or a "traine
 The scheduling dashboard is split into the submit form and a container that displays all the active lessons that have been created. The form requires the trainer to enter the students username, type of lesson, date of the lesson and finally the price. If the username entered into the form doesn't exist, it will return an error message saying "User does not exist".
 
 <details><summary>Schedule Page</summary>
-<img src="">
+<img src="images/scheduling_page.JPG">
 </details>
 <details><summary>Schedule error messages</summary>
-<img src="">
+<img src="images/scheduling_page_error.JPG">
 </details>
 <br>
 
@@ -203,8 +206,14 @@ Each lesson displayed has a "more" button when pressed drops down two options wh
 #### Edit
 -   When you press the "edit" option you will be redirected to a form where you can manipulate and edit the information to the lesson of choice. Once you edited the lesson accordingly, all you need to do is hit the "save" button and the lesson will be saved.
 
+<details><summary>Edit Lesson Page</summary>
+<img src="images/edit_lesson.JPG">
+</details>
+
 #### Delete
 -   When you hit the "delete" option, the lesson of choice will be automatically deleted for the trainer and for the student.
+
+## Database Design
 
 ## Technologies Used
 
