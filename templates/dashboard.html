@@ -20,13 +20,22 @@
                 <p id="EmptyCalendar">{{dashboard_error}}</p>
               {% endif %}
                 <div id="dashboard_calendar">
-                    {% for q in query.all|slice:"0:3" %}
-                    <div id="dashboard_calendar_item">
-                        <img src="" alt="">
-                        <h2 class="fs-3">@{{ q.student }}</h2>
-                        <h3 class="fs-4">{{ q.timestamp }}</h3>
+                  {% for q in query.all|slice:"0:3" %}
+                  <a data-bs-toggle="collapse" href="#{{ q.id }}" role="button" aria-expanded="false" aria-controls="collapseExample" id="dashboard_calendar_item">
+                    <img src="" alt="">
+                    <h2 class="fs-3">@{{ q.student }}</h2>
+                    <h3 class="fs-4">{{ q.timestamp }}</h3>
+                  </a>
+                  <div class="collapse calendar_dropdown" id="{{ q.id }}">
+                    <div class="card card-body">
+                      <p>Trainer: @{{q.student}}</p>
+                      <p>Lesson Type: {{q.lesson_type}}</p>
+                      <p>Time and date: {{q.timestamp}}</p>
+                      <p>Price: {{q.price}}</p>
+                      <p>Status: {{q.status}}</p>
                     </div>
-                    {% endfor %}
+                  </div>
+                  {% endfor %}
                 </div>
             </div>
             <div class="col-md-4">
