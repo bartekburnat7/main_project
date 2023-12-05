@@ -22,6 +22,8 @@
 }
 
 #dashboard_calendar_item {
+    text-decoration: none;
+    color: black;
     margin-top: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.2);
@@ -36,6 +38,10 @@
 
 #dashboard_calendar_item>h2 {
     margin: auto 0px auto 10px;
+}
+
+.calendar_dropdown {
+    margin-top: 10px;
 }
 
 
@@ -53,6 +59,11 @@
 }
 
 
-/*  FOOTER  */
+/*  ACCEPT BOX  */
 
-.main_footer {}
+#accept_box {
+    margin: 10px 10px 10px auto;
+}
+
+
+/*  FOOTER  */

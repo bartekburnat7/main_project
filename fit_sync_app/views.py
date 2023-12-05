@@ -21,8 +21,9 @@ def dashboard(request):
 
 def student_dashboard(request):
     current_user = request.user
-    query = TrainingSession.objects.filter(student=current_user).order_by('timestamp')
-    return render(request, "student_dashboard.html", {'query': query})
+    query = TrainingSession.objects.filter(student=current_user, status="accepted").order_by('timestamp')
+    incominglessons = TrainingSession.objects.filter(student=current_user, status="pending").order_by('timestamp')
+    return render(request, "student_dashboard.html", {'query': query, "incominglessons": incominglessons})
 
 def schedule(request):
     current_user = request.user
@@ -91,6 +92,24 @@ def EditLesson(request, lesson_id):
             return render(request, "update_lesson.html", {'error': "User does not exist"})
     
     return render(request, "update_lesson.html", {'editlesson': editlesson})
+
+def AcceptLesson(request, lesson_id):
+    current_user = request.user
+    acceptlesson = TrainingSession.objects.get(id=lesson_id)
+    
+    acceptlesson.status = "accepted"
+    acceptlesson.save()
+    return redirect("student_dashboard")
+    
+def CancelLesson(request, lesson_id):
+    current_user = request.user
+    cancellesson = TrainingSession.objects.get(id=lesson_id)
+    if not request.user.is_authenticated:
+        return redirect("account_login")
+    
+    cancellesson.status = "cancelled"
+    cancellesson.save()
+    return redirect("student_dashboard")
 
 def AuthCheck(request):
     if not request.user.is_authenticated:

@@ -35,6 +35,8 @@ urlpatterns = [
     path('student-dashboard/', views.student_dashboard, name='student_dashboard'),
     path('schedule/<lesson_id>', views.DeleteLesson, name='deletelesson'),
     path('update_lesson/<lesson_id>', views.EditLesson, name='editlesson'),
+    path('accept/<lesson_id>', views.AcceptLesson, name='acceptlesson'),
+    path('cancel/<lesson_id>', views.CancelLesson, name='cancellesson'),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]

@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <div id="calendar_title">
                     <h1>Calendar</h1>
                 </div>
@@ -20,13 +20,33 @@
                 {% endif %}
                 <div id="dashboard_calendar">
                     {% for q in query.all|slice:"0:3" %}
-                    <div id="dashboard_calendar_item">
-                        <img src="" alt="">
-                        <h2 class="fs-3">@{{ q.student }}</h2>
+                    <a data-bs-toggle="collapse" href="#{{ q.id }}" role="button" aria-expanded="false" aria-controls="collapseExample" id="dashboard_calendar_item">
+                        <h2 class="fs-3">@{{ q.trainer }}</h2>
                         <h3 class="fs-4">{{ q.timestamp }}</h3>
-                    </div>
+                    </a>
+                    <div class="collapse calendar_dropdown" id="{{ q.id }}">
+                        <div class="card card-body">
+                            <p>Trainer: @{{q.trainer}}</p>
+                            <p>Lesson Type: {{q.lesson_type}}</p>
+                            <p>Time and date: {{q.timestamp}}</p>
+                            <p>Price: {{q.price}}</p>
+                            <p>Status: {{q.status}}</p>
+                        </div>
+                      </div>
                     {% endfor %}
                 </div>
+            </div>
+            <div class="col-lg-4">
+                <h1>Incoming Lessons</h1>
+                {% for q in incominglessons.all|slice:"0:3" %}
+                <div id="dashboard_calendar_item">
+                    <h2 class="fs-3">@{{ q.trainer }}</h2>
+                    <div id="accept_box">
+                        <a type="button" href={% url "acceptlesson" q.id%} class="btn btn-outline-success">Accept</a>
+                        <a type="button" href={% url "cancellesson" q.id %} class="btn btn-outline-danger">Cancel</a>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </body>
