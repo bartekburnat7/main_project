@@ -19,6 +19,7 @@
 
 #dashboard_calendar {
     margin-bottom: 10px;
+    min-height: 100px;
 }
 
 #dashboard_calendar_item {
@@ -42,6 +43,10 @@
 
 .calendar_dropdown {
     margin-top: 10px;
+}
+
+.incoming_box {
+    display: flex;
 }
 
 
