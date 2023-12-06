@@ -32,12 +32,12 @@ While creating the website I decided to utilize Bootstrap 5 to create a responsi
 -   #1 As a user it should be obvious that the website is made for people that are interested in the gym.
 -   #2 As a user I can see cards where I can read about what the website goals are and the features that are offered.
 -   #3 As a user I can easily navigate to the sign up and login page.
--   ####    Trainer
-    -   #4 As a Personal trainer I can easily create a "Trainer Account" by selecting the "Create a Trainer Account:" when signing up, so I am able to book lessons for my students.
 
 ###    User Registration and Authentication
--   #5 As a user I can easily register by creating a username, password and selecting what type of account I would like to create.
--   #6 As a user I can easily log out by clicking the "Log Out" button which is placed in the navbar.
+-   #4 As a user I can easily register by creating a username, password and selecting what type of account I would like to create.
+-   #5 As a user I can easily log out by clicking the "Log Out" button which is placed in the navbar.
+-   ####    Trainer
+    -   #6 As a Personal trainer I can easily create a "Trainer Account" by selecting the "Create a Trainer Account:" when signing up, so I am able to book lessons for my students.
 
 ###     Dashboard
 -   ####    Student
