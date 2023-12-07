@@ -4,10 +4,16 @@ from fit_sync_app.models import TrainingSession
 from accounts.models import CustomUser
 
 
-# Create your views here.
+'''
+Render code for the homepage of the website.
+'''
 def index(request):
     return render(request, "index.html")
 
+'''
+Render html for the trainer dashboard which
+includes code for the calendar and the earnings.
+'''
 def dashboard(request):
     auth_result = AuthCheck(request)
     if auth_result:
@@ -17,8 +23,14 @@ def dashboard(request):
     return render(request, "dashboard.html", {'query': query,
                                               'dashboard_error': GetLesson(query),
                                               'lesson_count': GetLessonCount(query),
-                                              'total_price': LessonTotalPrice(query),})
+                                              'total_price': LessonTotalPrice(query),
+                                              'fee_price': "{:0.2f}".format(LessonTotalPrice(query) * 0.9)})
 
+'''
+Render html for the student dashboard which
+includes code for the calendar and the incoming
+lessons.
+'''
 def student_dashboard(request):
     current_user = request.user
     if current_user.is_trainer == True:
@@ -27,7 +39,9 @@ def student_dashboard(request):
     query = TrainingSession.objects.filter(student=current_user, status="accepted").order_by('timestamp')
     incominglessons = TrainingSession.objects.filter(student=current_user, status="pending").order_by('timestamp')
     return render(request, "student_dashboard.html", {'query': query, "incominglessons": incominglessons})
-
+'''
+Function to accept a lesson request from a trainer.
+'''
 def AcceptLesson(request, lesson_id):
     acceptlesson = TrainingSession.objects.get(id=lesson_id)
     if request.user != acceptlesson.student:
@@ -35,7 +49,10 @@ def AcceptLesson(request, lesson_id):
     acceptlesson.status = "accepted"
     acceptlesson.save()
     return redirect("student_dashboard")
-    
+
+'''
+Function to cancel a lesson request from a trainer.
+'''
 def CancelLesson(request, lesson_id):
     cancellesson = TrainingSession.objects.get(id=lesson_id)
     if request.user != cancellesson.student:
@@ -44,6 +61,11 @@ def CancelLesson(request, lesson_id):
     cancellesson.save()
     return redirect("student_dashboard")
 
+'''
+Render html for the trainer dashboard which
+includes the form to create a new lesson and
+the list of lessons.
+'''
 def schedule(request):
     current_user = request.user
     form_error = ""
@@ -72,6 +94,9 @@ def schedule(request):
                     
     return render(request, "schedule.html", {'query': query, 'dashboard_error': GetLesson(query), 'form_error': form_error,})
 
+'''
+Function to delete a lesson request from a trainer.
+'''
 def DeleteLesson(request, lesson_id):
     current_user = request.user
     auth_result = AuthCheck(request)
@@ -83,6 +108,10 @@ def DeleteLesson(request, lesson_id):
     lesson.delete()
     return redirect("schedule")
 
+'''
+Render html for the trainers which includes
+the form to edit the lesson.
+'''
 def EditLesson(request, lesson_id):
     current_user = request.user
     editlesson = TrainingSession.objects.get(id=lesson_id)
@@ -112,12 +141,21 @@ def EditLesson(request, lesson_id):
     
     return render(request, "update_lesson.html", {'editlesson': editlesson})
 
+'''
+Function to check if the user is logged in 
+and if they are a trainer which redirects 
+them accordingly.
+'''
 def AuthCheck(request):
     if not request.user.is_authenticated:
         return redirect("account_login")
     elif request.user.is_trainer == False:
         return redirect("student_dashboard")
 
+'''
+Function to check if the trainer has any lessons
+and if not, returns an error message.
+'''
 def GetLesson(input):
     if input.count() == 0:
         error =  "No lessons found"
@@ -126,9 +164,16 @@ def GetLesson(input):
         error = ""
         return error
 
+'''
+Function to count the number of lessons.
+'''
 def GetLessonCount(input):
     return input.count()
 
+'''
+Function to calculate the total price
+of the lessons.
+'''
 def LessonTotalPrice(input):
     total = 0
     for i in input:
