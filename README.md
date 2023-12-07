@@ -35,7 +35,7 @@ While creating the website I decided to utilize Bootstrap 5 to create a responsi
 
 ###    User Registration and Authentication
 -   #4 As a user I can easily register by creating a username, password and selecting what type of account I would like to create.
--   #5 As a user I can easily log out by clicking the "Log Out" button which is placed in the navbar.
+-   #5 As a user I can easily log into my account and log out by clicking the "Log Out" button which is placed in the navbar.
 -   ####    Trainer
     -   #6 As a Personal trainer I can easily create a "Trainer Account" by selecting the "Create a Trainer Account:" when signing up, so I am able to book lessons for my students.
 
@@ -216,10 +216,9 @@ Each lesson displayed has a "more" button when pressed drops down two options wh
 -   When you hit the "delete" option, the lesson of choice will be automatically deleted for the trainer and for the student.
 
 ## Database Design
+## Testing
 
 ## Technologies Used
-
-## Testing
 
 ### Programming languages
 -   HTML/CSS
