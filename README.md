@@ -237,6 +237,9 @@ Each lesson displayed has a "more" button when pressed drops down two options wh
 -   __Git/github__ - I used these services to version control the project and write out all the user stories out in the issues tab.
 ##  Credits
 
+#### Images
+
+All images used have been purchased from the shutterstock website which I hold the license for.
 
 Codemy.com
 https://animated-gradient-background-generator.netlify.app/

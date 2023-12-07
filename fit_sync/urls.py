@@ -26,9 +26,9 @@ from allauth.account.views import signup, login, logout
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path("account/signup/", signup, name="account_signup"),
-    path("account/login/", login, name="account_login"),
-    path("account/logout/", logout, name="account_logout"),
+    path("accounts/signup/", signup, name="account_signup"),
+    path("accounts/login/", login, name="account_login"),
+    path("accounts/logout/", logout, name="account_logout"),
     path('', views.index, name='home'),
     path('schedule/', views.schedule, name='schedule'),
     path('dashboard/', views.dashboard, name='dashboard'),

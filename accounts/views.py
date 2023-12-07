@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.contrib.auth import login
 from .forms import SignupForm
-from fit_sync_app import views
-from accounts.models import CustomUser
 
+'''
+Render the signup page and handle the
+signup form and redirect to the dashboard.
+Also return errors if the form is invalid.
+'''
 def signup(request):
     if request.user.is_authenticated:
         return redirect("dashboard")
@@ -14,7 +16,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')
+            return redirect('dashboard')
     else:
         form = SignupForm()
     return render(request, "signup.html", {'form': form.errors})

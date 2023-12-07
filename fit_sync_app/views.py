@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from fit_sync_app.models import TrainingSession
 from accounts.models import CustomUser
 
@@ -39,6 +38,7 @@ def student_dashboard(request):
     query = TrainingSession.objects.filter(student=current_user, status="accepted").order_by('timestamp')
     incominglessons = TrainingSession.objects.filter(student=current_user, status="pending").order_by('timestamp')
     return render(request, "student_dashboard.html", {'query': query, "incominglessons": incominglessons})
+
 '''
 Function to accept a lesson request from a trainer.
 '''
