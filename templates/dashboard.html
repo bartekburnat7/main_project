@@ -22,7 +22,6 @@
                 <div id="dashboard_calendar">
                   {% for q in query.all|slice:"0:3" %}
                   <a data-bs-toggle="collapse" href="#{{ q.id }}" role="button" aria-expanded="false" aria-controls="collapseExample" id="dashboard_calendar_item">
-                    <img src="" alt="">
                     <h2 class="fs-3">@{{ q.student }}</h2>
                     <h3 class="fs-4">{{ q.timestamp }}</h3>
                   </a>
@@ -41,7 +40,7 @@
             <div class="col-md-4">
                 <h1>Earnings</h1>
                 <div class="card" id="dashboard_earning">
-                    <p class="fs-1 fw-bolder text-end">£3409.12</p>
+                    <p class="fs-1 fw-bolder text-end">£{{fee_price}}</p>
                     <p class="fs-5">Gross Income</p>
                     <p class="fs-4 fw-bolder text-end">£{{total_price}}</p>
                     <p class="fs-5">Lesson's Booked</p>
