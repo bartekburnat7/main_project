@@ -20,5 +20,17 @@
 #### __Student__ :
 | Description | Steps | Expected Outcome | Outcome |
 |-------------|-------|------------------|---------|
-| Logged out user cant access the dashboard | Enter the url of the of the dashboard.| The user should be redirected to the "Log In" page. | Worked as expected |
+| Logged out user can't access the dashboard | Enter the url of the of the dashboard.| The user should be redirected to the "Log In" page. | Worked as expected |
 | If there are more than 3 lessons created, only the 3 earliest are shown. | Open the student dashboard page. | Only the first 3 of the earliest lessons should be displayed in cronological order. | Worked as expected |
+| Accept incoming lessons from the trainer | 1. Open the dashboard.<br>2. Click the accept button. | After clicking the "Accept" button the lesson should appear in the calendar section. | Worked as expected |
+| Cancel incoming lessons from the trainer | 1. Open the dashboard.<br>2. Click the cancel button. | After clicking the "Cancel" button the incoming lesson should disappear and the status of the lesson to "cancelled". | Worked as expected |
+
+### Scheduling
+
+| Description | Steps | Expected Outcome | Outcome |
+|-------------|-------|------------------|---------|
+| Logged out user can't access the scheduling page. | Enter the url of the of the scheduling page url. | The user should be redirected to the "Log In" page. | Worked as expected |
+| Students user can't access the scheduling page. | 1. Log into a student account.<br>2. Enter the url of the of the scheduling page url. | The user should be redirected back to the student dashboard. | Worked as expected |
+| View the created lessons | Open the schedule page. | All the created lessons by the trainer should be displayed. | Worked as expected |
+| Trainer can edit each lesson. | 1. Open the scheduling page.<br>2. Click the "more" button on a lesson of choice.<br>3. Press "Edit" from the dropdown option. | The lesson should open on a new page displaying a form that enables the trainer to edit the lesson of choice. | Worked as expected |
+| Trainer can delete each lesson | 1. Create a lesson.<br>2. Find the created lesson and click the "more" button.<br>3. Press the delete option. | The created lesson should be deleted from the database. | Worked as expected |
