@@ -1,0 +1,57 @@
+#heroImage {
+    min-height: 100px;
+    background: linear-gradient(326deg, #b7e2fd, #ffffff, #c3ffff, #ffffff, #dfffff, #ffffff, #ffffff);
+    background-size: 200% 100%;
+    animation: gradient-animation 8s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#heroText {
+    margin: auto;
+    max-width: 1400px;
+}
+
+#heroText>h1 {
+    margin: 10px;
+}
+
+.row {
+    margin: 10px auto 0 auto;
+    padding: 20px 0 20px 0;
+    max-width: 1400px;
+}
+
+@media screen and (max-width: 1401px) {
+    .row {
+        max-width: 95%;
+    }
+}
+
+#calendar>div {
+    margin: auto;
+    overflow: hidden;
+}
+
+#calendar>div>video {
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+video {
+    max-width: 95%;
+}
+
+#videodiv {
+    max-height: 30vh;
+}
