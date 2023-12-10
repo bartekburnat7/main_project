@@ -9,6 +9,15 @@ Render code for the homepage of the website.
 def index(request):
     return render(request, "index.html")
 
+def features(request):
+    return render(request, "features_page.html")
+
+def goals(request):
+    return render(request, "goals_page.html")
+
+def about(request):
+    return render(request, "about_us_page.html")
+
 '''
 Render html for the trainer dashboard which
 includes code for the calendar and the earnings.
