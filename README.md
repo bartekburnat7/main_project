@@ -91,7 +91,7 @@ I sketch my ideas of how the layout of the pages would look using moqups.com, so
 </details>
 <br>
 
-As I used the mobile first approach I also designed wireframes of what these pages would look like on a smaller device. I wanted to keep the design simple to not clatter the screen and make it difficult to follow or read:
+As I used the mobile first approach I also designed wireframe of what these pages would look like on a smaller device. I wanted to keep the design simple to not clatter the screen and make it difficult to follow or read:
 
 <details><summary>Home Page</summary>
 <img src="images/home_page_phone.JPG">
