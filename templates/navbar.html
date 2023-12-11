@@ -18,7 +18,7 @@
                 </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav" id="navBarList">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href={% url "features" %}>Features</a>
                         {% if user.is_authenticated %}
                             <a class="nav-link" href={% url "dashboard" %}>Dashboard</a>
                             <li class="nav-item">
