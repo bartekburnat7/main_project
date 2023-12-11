@@ -4,7 +4,9 @@ from accounts.models import CustomUser
 
 
 '''
-Render code for the homepage of the website.
+Render code for the homepage of the website
+and the navbar which is included in all pages.
+Extra pages are rendered below.
 '''
 def index(request):
     return render(request, "index.html")
@@ -46,7 +48,10 @@ def student_dashboard(request):
     
     query = TrainingSession.objects.filter(student=current_user, status="accepted").order_by('timestamp')
     incominglessons = TrainingSession.objects.filter(student=current_user, status="pending").order_by('timestamp')
-    return render(request, "student_dashboard.html", {'query': query, "incominglessons": incominglessons})
+    return render(request, "student_dashboard.html", {'query': query,
+                                                      'dashboard_error': GetLesson(query),
+                                                      'incoming_error': GetLesson(incominglessons),
+                                                      'incominglessons': incominglessons})
 
 '''
 Function to accept a lesson request from a trainer.

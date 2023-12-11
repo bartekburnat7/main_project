@@ -1,0 +1,89 @@
+/*  DASHBOARD CONTENT   */
+
+#dashboard {
+    margin-top: 20px;
+}
+
+
+/*  DASHBOARD CALENDAR  */
+
+.row {
+    margin: 10px auto 10px auto;
+    max-width: 1500px;
+}
+
+#calendar_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#dashboard_calendar {
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    min-height: 150px;
+}
+
+#dashboard_calendar_item {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.2);
+    display: flex;
+}
+
+#dashboard_calendar_item>h3 {
+    padding: 10px 0 10px 0;
+    margin: auto 10px auto auto;
+    text-align: right;
+}
+
+#dashboard_calendar_item>h2 {
+    margin: auto 0px auto 10px;
+}
+
+.calendar_dropdown {
+    margin: 10px;
+}
+
+.incoming_box {
+    display: flex;
+}
+
+#EmptyCalendar {
+    padding: 5px;
+    text-align: center;
+}
+
+
+/*  DASHBOARD EARNING  */
+
+#dashboard_earning>p {
+    margin: 0 10px 5px 10px;
+}
+
+
+/*  FEATURES LIST   */
+
+.dashboard_features {
+    margin-bottom: 10px;
+}
+
+
+/*  INCOMING BOX  */
+
+#incoming_lessons {
+    min-height: 150px;
+    background-color: #f0f0f0;
+}
+
+
+/*  ACCEPT BOX  */
+
+#accept_box {
+    margin: 10px 10px 10px auto;
+}
+
+
+/*  FOOTER  */
