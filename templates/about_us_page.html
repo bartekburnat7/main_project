@@ -1,3 +1,71 @@
 {% extends "navbar.html" %}
 {% load static %}
 {% block content%}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>FitSync - Features</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type='text/css' href={% static "css/about_us.css" %}>
+    </head>
+    <body>
+        <div id="heroImage">
+            <div id="heroText">
+                <h1>About Us</h1>
+            </div>
+        </div>
+        <div class="row shadow p-3 mb-5 bg-body rounded">
+            <div class="col-md-5">
+                <h2>Seamless Fitness Goals with FitSync</h2>
+                <p>Welcome to FitSync, where we believe that achieving your fitness goals should be as seamless as possible. FitSync is not just a gym scheduling company; we are your dedicated partner in crafting a healthier and happier lifestyle. Our mission is to revolutionize the fitness experience by providing a user-friendly platform that connects fitness enthusiasts with their favorite gyms and trainers. With FitSync, you can effortlessly manage your workout schedule, book classes, and stay motivated on your fitness journey.</p>
+            </div>
+            <div class="col-md-7" id="photodiv">
+                <img src={% static "images/features.jpg" %} class="card-img" alt="features">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <h2>Innovative Scheduling for Busy Lifestyles</h2>
+                <p>At FitSync, we understand the importance of time and convenience in today's fast-paced world. Our innovative scheduling platform empowers you to find and book fitness classes that suit your preferences and align with your busy schedule. Whether you're into high-intensity interval training, yoga, or spin classes, FitSync offers a diverse range of options to cater to every fitness enthusiast. We collaborate with top-notch gyms and certified trainers to ensure that you have access to the best facilities and expertise, making your fitness routine not only effective but also enjoyable.</p>
+            </div>
+            <div class="col-md-7" id="photodiv">
+                <img src={% static "images/goals.jpg" %} class="card-img" alt="features">
+            </div>
+        </div>
+        <div class="row shadow p-3 mb-5 bg-body rounded">
+            <div class="col-md-5">
+                <h2>Beyond Scheduling, Building Community</h2>
+                <p>As a company deeply committed to your well-being, FitSync goes beyond just scheduling. We strive to foster a community of like-minded individuals who share a passion for health and fitness. Through our platform, you can connect with fellow fitness enthusiasts, share your achievements, and motivate each other to reach new heights. Join us on the journey to a healthier and more active lifestyle with FitSync – where scheduling meets community, and fitness becomes a rewarding and enjoyable part of your daily routine.</p>
+            </div>
+            <div class="col-md-7" id="photodiv">
+                <img src={% static "images/aboutus.jpg" %} class="card-img" alt="about us card">
+            </div>
+        </div>
+        <div class="row" id="appFeaturesSection">
+            <div class="card col-md-5">
+              <img src={% static "images/features.jpg" %} class="card-img-top" alt="features">
+              <div class="card-body">
+                <h5 class="card-title">Features</h5>
+                <p class="card-text">Explore endless possibilities with our app's rich features  ensure a seamless experience at your fingertips!</p>
+                <a href={% url "features" %} class="btn btn-primary">See Features</a>
+              </div>
+            </div>
+            <div class="card col-md-5">
+              <img src={% static "images/goals.jpg" %} class="card-img-top" alt="features">
+              <div class="card-body">
+                <h5 class="card-title">Goal</h5>
+                <p class="card-text">Achieving Fitness Success Together and what are the goals of FitSync currently and in the future!</p>
+                <a href={% url "goals" %} class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        <div id="footer">
+            <div id="footerText">
+                <p>FitSync</p>
+                <p>© 2023 FitSync, Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+<html>
+{% endblock %}
