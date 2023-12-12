@@ -216,7 +216,16 @@ Each lesson displayed has a "more" button when pressed drops down two options wh
 -   When you hit the "delete" option, the lesson of choice will be automatically deleted for the trainer and for the student.
 
 ## Database Design
+
+The application consists of two main models taht are the "CustomUser" is where all the users are stored including passwords, email and type of account. Second model "Training Sessions" holds all the lessons which consist of what trainer created the user and for what student the lesson is for and the details accordingly. The "status" field contais the 3 options for each lesson.
+
+<img src="images/database_diagram.JPG">
+
+There is also a third model which is a "setting" table, which I added for further development where in the future I would like to add custom settings for each user.
+
 ## Testing
+
+All manual testing and code validation was documented in the [TESTING.md](TESTING.md) file.
 
 ## Technologies Used
 
@@ -237,9 +246,13 @@ Each lesson displayed has a "more" button when pressed drops down two options wh
 -   __Git/github__ - I used these services to version control the project and write out all the user stories out in the issues tab.
 ##  Credits
 
-#### Images
+### Images
 
 All images used have been purchased from the shutterstock website which I hold the license for.
 
-Codemy.com
-https://animated-gradient-background-generator.netlify.app/
+### Websites
+
+Here is the list of websites I used to get information or anwsers to any problems I had when creating the app:
+
+https://codemy.com/<br>
+https://animated-gradient-background-generator.netlify.app/<br>
