@@ -16,6 +16,7 @@
 | Logged out user cant access the dashboard | Enter the url of the of the dashboard.| The user should be redirected to the "Log In" page. | Worked as expected |
 | Student Account can't access trainers dashboard | 1. Log into a student account. <br> 2. Enter the url of the of the trainer dashboard. | The student account should be redirected to the student dashboard. | Worked as expected |
 | If there are more than 3 lessons created, only the 3 earliest are shown. | Open the trainer dashboard page. | Only the first 3 of the earliest lessons should be displayed in cronological order. | Worked as expected |
+| The navigation bar has the scheduling option included. | 1. Log into a trainer account. <br>2. Click the hamburger icon on the top right. | The menu should slide in from the right and contain the "scheduling" button to link you to the | Worked as expected |
 
 #### __Student__ :
 | Description | Steps | Expected Outcome | Outcome |
@@ -34,3 +35,22 @@
 | View the created lessons | Open the schedule page. | All the created lessons by the trainer should be displayed. | Worked as expected |
 | Trainer can edit each lesson. | 1. Open the scheduling page.<br>2. Click the "more" button on a lesson of choice.<br>3. Press "Edit" from the dropdown option. | The lesson should open on a new page displaying a form that enables the trainer to edit the lesson of choice. | Worked as expected |
 | Trainer can delete each lesson | 1. Create a lesson.<br>2. Find the created lesson and click the "more" button.<br>3. Press the delete option. | The created lesson should be deleted from the database. | Worked as expected |
+
+### Lesson Edit Page
+
+| Description | Steps | Expected Outcome | Outcome |
+|-------------|-------|------------------|---------|
+| Trainer can edit each part of the lesson. | 1. Open the scheduling page.<br>2. Click the "more" button on a lesson of choice.<br>3. Press "Edit" from the dropdown option.<br>4. Edit the form accordingly.<br>5. Click the save button. | If all the edited data is correctly formatted, the data will be saved and you will be redirected back to the scheduling page. | Worked as expected |
+
+## Browser and Mobile compatibility
+
+Each page has been designed with the mobile first approach, so therefore the website is responsive to smaller devices. With some differences depending on the content, pages should switch into mobile view if the size drops below 768 pixels.accordion
+
+I tested this by using the built in Chrome mobile viewer but have also used my Iphone 12 to further test my website.
+
+The website was tested on multiple browsers to check for any compatibility bugs both in the mobile view and the desktop size view. The browsers on which I tested my website on:
+
+-   Google Chrome
+-   Internet Explorer
+-   Safari
+-   FireFox
