@@ -143,8 +143,8 @@ def EditLesson(request, lesson_id):
         time = request.POST.get('time_of_lesson')
         price = request.POST.get('price_of_lesson')
         try:
-            CustomUser.objects.get(username=student)
-            editlesson.student = student
+            get_student = CustomUser.objects.get(username=student)
+            editlesson.student = get_student
             editlesson.lesson_type = lesson_type
             editlesson.timestamp = time
             editlesson.price = price

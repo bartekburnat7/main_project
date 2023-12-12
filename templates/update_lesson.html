@@ -12,6 +12,11 @@
       <h1>Update Lesson</h1>
       <form method="POST" id="add_lesson_form" action="">
           {% csrf_token %}
+          {% if error %}
+          <div class="alert alert-danger" role="alert">
+            {{error}}
+          </div>
+          {% endif %}
           <div class="input-group">
             <div class="input-group-text">@</div>
             <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user" value={{editlesson.student}} required>
