@@ -54,3 +54,5 @@ The website was tested on multiple browsers to check for any compatibility bugs 
 -   Internet Explorer
 -   Safari
 -   FireFox
+
+Minor bugs were found where on the features page the videos would not autoplay due to safety reasons on the mobile phone.
