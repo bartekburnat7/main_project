@@ -1,14 +1,15 @@
-{% extends "schedule.html" %}
-{% block content %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>FitSync - Update Lesson</title>
+    <meta charset="utf-8">
+    {% include "navbar/dashboard_navbar_head.html" %}
     <script  src="https://momentjs.com/downloads/moment.js"></script>
     <link rel="stylesheet" href="{% static 'css/update_lesson.css' %}">
   </head>
   <body>
+    {% include "navbar/dashboard_navbar.html" %}
     <div class="container" id="updatecontainer">
       <h1>Update Lesson</h1>
       <form method="POST" id="add_lesson_form" action="">
@@ -49,4 +50,3 @@
     </script>
   </body>
 </html>
-{% endblock %}

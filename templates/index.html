@@ -1,20 +1,22 @@
-{% extends "navbar.html" %}
 {% load static %}
-{% block content%}
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>FitSync - Homepage</title>
         <meta charset="utf-8">
+        <title>FitSync - Homepage</title>
+        <meta name="description" content="FitSync is a fitness app that helps you stay connected with your friends and family.">
+        <meta name="keywords" content="FitSync, Fitness, App, Social, Media, Social Media, Fitness App, Fitness Social Media, Fitness Social Media App, Fitness App Social Media, Fitness App Social Media App, Fitness Social Media App, Fitness Social Media Fitness App, Fitness App Social Media Fitness App, Fitness Social Media Fitness Social Media, Fitness App Social Media Fitness Social Media, Fitness Social Media App Social Media, Fitness App Social Media App Social Media, Fitness Social Media App Social Media, Fitness Social Media Fitness App Social Media, Fitness App Social Media Fitness App Social Media, Fitness Social Media Fitness Social Media Social Media, Fitness App Social Media Fitness Social Media Social Media, Fitness Social Media App Social Media Social Media, Fitness App Social Media App Social Media Social Media, Fitness Social Media App Social Media Social Media, Fitness Social Media Fitness App Social Media Social Media, Fitness App Social Media Fitness App Social Media Social Media">
+        {% include "navbar/navbar_head.html" %}
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type='text/css' href={% static "css/home.css" %}>
     </head>
       <body>
+        {% include "navbar/navbar.html" %}
         <div id="heroImage">
           <div id="heroTextContainer">
             <h1 id="heroText">FitSync</h1>
             <h2 id="heroSubText">A fitness app that helps you stay connected</h2>
-            <a type="button" class="btn btn-primary btn-lg" id="heroButton" role="button" aria-pressed="true" href="accounts/signup">Get Started</a>
+            <a class="btn btn-primary btn-lg" id="heroButton" role="button" aria-pressed="true" href="accounts/signup">Get Started</a>
           </div>
         </div>
         <div class="row" id="appFeaturesSection">
@@ -52,4 +54,3 @@
         </div>
     </body>
 </html>
-{% endblock %}

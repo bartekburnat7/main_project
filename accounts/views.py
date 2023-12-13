@@ -19,4 +19,4 @@ def signup(request):
             return redirect('dashboard')
     else:
         form = SignupForm()
-    return render(request, "signup.html", {'form': form.errors})
+    return render(request, "account/signup.html", {'form': form.errors})
