@@ -12,7 +12,7 @@
     {% include "navbar/dashboard_navbar.html" %}
     <h1 id="text_heading">Schedule Lesson</h1>
     <div class="row">
-      <form method="POST" id="add_lesson_form" action="" class="col-md-4">
+      <form method="POST" id="add_lesson_form" class="col-md-4">
         {% csrf_token %}
         {% if form_error %}
           <p id="form_error">{{ form_error }}</p>
@@ -58,9 +58,9 @@
         {% endfor %}
       </div>
     </div>
+    <script>
+      const today = new Date().toISOString().slice(0, 16);
+      document.getElementById('dateInput').min = today;
+    </script>
   </body>
-  <script>
-    const today = new Date().toISOString().slice(0, 16);
-    document.getElementById('dateInput').min = today;
-  </script>
 </html>

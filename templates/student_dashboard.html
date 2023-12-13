@@ -9,7 +9,7 @@
         <link rel="stylesheet" type='text/css' href={% static "css/student_dashboard.css" %}>
     </head>
     <body>
-        {% include "navbar/dashboard_navbar.html" %}
+    {% include "navbar/dashboard_navbar.html" %}
         <div class="row">
             <div class="col-md-7">
                 <div id="calendar_title">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="card rounded" id="dashboard_calendar">
                     {% if dashboard_error %}
-                    <p id="EmptyCalendar">{{dashboard_error}}</p>
+                    <p class="EmptyCalendar">{{dashboard_error}}</p>
                     {% endif %}
                     {% for q in query.all|slice:"0:3" %}
                     <div data-bs-toggle="collapse" href="#{{ q.id }}" role="button" aria-expanded="false" aria-controls="collapseExample" id="dashboard_calendar_item">
@@ -40,7 +40,7 @@
                 <h1>Incoming Lessons</h1>
                 <div class="card rounded" id="incoming_lessons">
                     {% if incoming_error %}
-                    <p id="EmptyCalendar">Incoming Lessons will be here</p>
+                    <p class="EmptyCalendar">Incoming Lessons will be here</p>
                     {% endif %}
                     {% for q in incominglessons.all|slice:"0:3" %}
                     <div  class="incoming_box" id="dashboard_calendar_item">

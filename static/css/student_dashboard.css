@@ -51,7 +51,7 @@
     display: flex;
 }
 
-#EmptyCalendar {
+.EmptyCalendar {
     padding: 5px;
     text-align: center;
 }

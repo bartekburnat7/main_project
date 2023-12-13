@@ -52,7 +52,7 @@ video {
     max-width: 95%;
 }
 
-#videodiv {
+.videodiv {
     max-height: 30vh;
 }
 
