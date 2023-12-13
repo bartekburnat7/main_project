@@ -44,7 +44,7 @@
 
 ## Browser and Mobile compatibility
 
-Each page has been designed with the mobile first approach, so therefore the website is responsive to smaller devices. With some differences depending on the content, pages should switch into mobile view if the size drops below 768 pixels.accordion
+Each page has been designed with the mobile first approach, so therefore the website is responsive to smaller devices. With some differences depending on the content, pages should switch into mobile view if the size drops below 768 pixels.
 
 I tested this by using the built in Chrome mobile viewer but have also used my Iphone 12 to further test my website.
 
@@ -55,4 +55,42 @@ The website was tested on multiple browsers to check for any compatibility bugs 
 -   Safari
 -   FireFox
 
-Minor bugs were found where on the features page the videos would not autoplay due to safety reasons on the mobile phone.
+Minor bugs were found where on the features page the videos would not auto-play due to safety reasons on the mobile phone.
+
+## Unit Testing
+
+## Validator Testing
+
+### HTML W3C Validator
+
+Each source code was processed by the validator by passing the url into the "validate by Url" to check for any markup errors. I run the validator and the results were as followed:
+
+#### Home Pages
+
+-   index.html
+    - no Errors
+-   features_page.html
+    - no Errors
+-   goals_page.html
+    - no Errors
+-   about_us_page.html
+    - no Errors
+
+#### Authentication Pages
+
+Account Pages
+-   login.html
+    - no Errors
+-   signup.html
+    - no Errors
+
+#### Dashboard Pages
+
+-   dashboard.html
+    - no Errors
+-   student_dashboard.html
+    - no Errors
+-   schedule.html
+    - no Errors
+-   update_lesson.html
+    - no Errors

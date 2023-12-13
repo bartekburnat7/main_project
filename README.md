@@ -252,7 +252,7 @@ All images used have been purchased from the shutterstock website which I hold t
 
 ### Websites
 
-Here is the list of websites I used to get information or anwsers to any problems I had when creating the app:
+Here is the list of websites I used to get information or anwsers to any problems I had when creating the app and writing code:
 
 https://codemy.com/<br>
 https://animated-gradient-background-generator.netlify.app/<br>
