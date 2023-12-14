@@ -17,6 +17,7 @@
 | Student Account can't access trainers dashboard | 1. Log into a student account. <br> 2. Enter the url of the of the trainer dashboard. | The student account should be redirected to the student dashboard. | Worked as expected |
 | If there are more than 3 lessons created, only the 3 earliest are shown. | Open the trainer dashboard page. | Only the first 3 of the earliest lessons should be displayed in cronological order. | Worked as expected |
 | The navigation bar has the scheduling option included. | 1. Log into a trainer account. <br>2. Click the hamburger icon on the top right. | The menu should slide in from the right and contain the "scheduling" button to link you to the | Worked as expected |
+| The Earnings section displays the total price before and after fees. | 1. Create a number of lessons in the scheduling page.<br>2. Open the trainer dashboard. | Application should add up all the lesson prices and display them in the earing section. | Worked as expected |
 
 #### __Student__ :
 | Description | Steps | Expected Outcome | Outcome |
@@ -94,3 +95,25 @@ Account Pages
     - no Errors
 -   update_lesson.html
     - no Errors
+
+### CI Python Linter 
+
+I tested all the python files using the Code Institute python Linter, this is not including the files that were originally created by the django REST Framework.
+
+#### fit_sync_app
+-   admin.py
+-   apps.py
+-   models.py
+-   views.py
+
+The only errors that was displayed by the CI python linter were the line length errors due to the lines being over 80 characters long.
+
+#### accounts
+-   admin.py
+-   apps.py
+-   forms.py
+-   models.py
+-   urls.py
+-   views.py
+
+The only errors that was displayed by the CI python linter were the line length errors due to the lines being over 80 characters long.
