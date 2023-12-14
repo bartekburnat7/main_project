@@ -1,4 +1,4 @@
-from django.db import models 
+from django.db import models
 from accounts.models import CustomUser
 
 '''
@@ -13,6 +13,8 @@ status_choices = (
 '''
 Model for a training sessions.
 '''
+
+
 class TrainingSession(models.Model):
     trainer = models.ForeignKey(CustomUser, blank=False, on_delete=models.CASCADE, related_name="trainer")
     student = models.ForeignKey(CustomUser, blank=False, on_delete=models.CASCADE, related_name="student")

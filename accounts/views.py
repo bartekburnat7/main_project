@@ -7,10 +7,11 @@ Render the signup page and handle the
 signup form and redirect to the dashboard.
 Also return errors if the form is invalid.
 '''
+
+
 def signup(request):
     if request.user.is_authenticated:
         return redirect("dashboard")
-    
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
