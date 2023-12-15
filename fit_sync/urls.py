@@ -23,6 +23,9 @@ from fit_sync_app import views
 
 from allauth.account.views import signup, login, logout
 
+handler404 = 'fit_sync_app.views.handler404'
+handler500 = 'fit_sync_app.views.handler500'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),

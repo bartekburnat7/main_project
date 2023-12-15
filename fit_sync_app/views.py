@@ -27,6 +27,19 @@ def about(request):
 
 
 '''
+Render the 404 and 500 error pages.
+'''
+
+
+def handler404(request, exception):
+    return render(request, "error/404.html")
+
+
+def handler500(request):
+    return render(request, "error/500.html")
+
+
+'''
 Render html for the trainer dashboard which
 includes code for the calendar and the earnings.
 '''
