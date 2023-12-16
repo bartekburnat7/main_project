@@ -42,7 +42,7 @@
       </form>
     </div>
     <script>
-      const time = '{{editlesson.timestamp.hour}}:{{editlesson.timestamp.minute}}'; // Replace this with your 12-hour time string
+      const time = '{{editlesson.timestamp.hour}}:{{editlesson.timestamp.minute}}';
       const formattedTime = moment(time, 'hh:mm A').format('HH:mm');
       const inputDate = '{{editlesson.timestamp.year}}-{{editlesson.timestamp.month}}-{{editlesson.timestamp.day}}T' + formattedTime;
       const today = new Date().toISOString().slice(0, 16);
