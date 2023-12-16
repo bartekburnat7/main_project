@@ -10,6 +10,7 @@
   </head>
   <body>
     {% include "navbar/dashboard_navbar.html" %}
+    {% include "messages.html" %}
     <h1 id="text_heading">Schedule Lesson</h1>
     <div class="row">
       <form method="POST" id="add_lesson_form" class="col-md-4">
@@ -50,8 +51,8 @@
               More
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href={% url "editlesson" q.id%}>Edit</a></li>
-              <li><a class="dropdown-item" href={% url "deletelesson" q.id %}>Delete</a></li>
+              <li><a class="dropdown-item" href={% url "edit_lesson" q.id%}>Edit</a></li>
+              <li><a class="dropdown-item" href={% url "delete_lesson" q.id %}>Delete</a></li>
             </ul>
           </div>
         </div>

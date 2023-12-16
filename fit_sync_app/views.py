@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from fit_sync_app.models import TrainingSession
 from accounts.models import CustomUser
 
@@ -70,11 +71,11 @@ def student_dashboard(request):
     if current_user.is_trainer is True:
         return redirect("dashboard")
     query = TrainingSession.objects.filter(student=current_user, status="accepted").order_by('timestamp')
-    incominglessons = TrainingSession.objects.filter(student=current_user, status="pending").order_by('timestamp')
+    incoming_lessons = TrainingSession.objects.filter(student=current_user, status="pending").order_by('timestamp')
     return render(request, "student_dashboard.html", {'query': query,
                                                       'dashboard_error': GetLesson(query),
-                                                      'incoming_error': GetLesson(incominglessons),
-                                                      'incominglessons': incominglessons})
+                                                      'incoming_error': GetLesson(incoming_lessons),
+                                                      'incoming_lessons': incoming_lessons})
 
 
 '''
@@ -83,11 +84,11 @@ Function to accept a lesson request from a trainer.
 
 
 def AcceptLesson(request, lesson_id):
-    acceptlesson = TrainingSession.objects.get(id=lesson_id)
-    if request.user != acceptlesson.student:
+    accept_lesson = TrainingSession.objects.get(id=lesson_id)
+    if request.user != accept_lesson.student:
         return redirect("student_dashboard")
-    acceptlesson.status = "accepted"
-    acceptlesson.save()
+    accept_lesson.status = "accepted"
+    accept_lesson.save()
     return redirect("student_dashboard")
 
 
@@ -97,11 +98,11 @@ Function to cancel a lesson request from a trainer.
 
 
 def CancelLesson(request, lesson_id):
-    cancellesson = TrainingSession.objects.get(id=lesson_id)
-    if request.user != cancellesson.student:
+    cancel_lesson = TrainingSession.objects.get(id=lesson_id)
+    if request.user != cancel_lesson.student:
         return redirect("student_dashboard")
-    cancellesson.status = "cancelled"
-    cancellesson.save()
+    cancel_lesson.status = "cancelled"
+    cancel_lesson.save()
     return redirect("student_dashboard")
 
 
@@ -131,6 +132,8 @@ def schedule(request):
                 lesson_type=lesson_type,
                 timestamp=time,
                 price=price)
+            message = "Lesson for @" + student.username + " created successfully"
+            messages.add_message(request, messages.INFO, message)
         except CustomUser.DoesNotExist:
             form_error = "User does not exist"
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
@@ -153,6 +156,8 @@ def DeleteLesson(request, lesson_id):
     if current_user != lesson.trainer:
         return redirect("schedule")
     lesson.delete()
+    message = "Lesson for @" + lesson.student.username + " deleted successfully"
+    messages.add_message(request, messages.INFO, message)
     return redirect("schedule")
 
 
@@ -164,11 +169,11 @@ the form to edit the lesson.
 
 def EditLesson(request, lesson_id):
     current_user = request.user
-    editlesson = TrainingSession.objects.get(id=lesson_id)
+    edit_lesson = TrainingSession.objects.get(id=lesson_id)
     auth_result = AuthCheck(request)
     if auth_result:
         return auth_result
-    if current_user != editlesson.trainer:
+    if current_user != edit_lesson.trainer:
         return redirect("schedule")
     if request.method == 'POST':
         student = request.POST.get('created_for_user')
@@ -177,15 +182,15 @@ def EditLesson(request, lesson_id):
         price = request.POST.get('price_of_lesson')
         try:
             get_student = CustomUser.objects.get(username=student)
-            editlesson.student = get_student
-            editlesson.lesson_type = lesson_type
-            editlesson.timestamp = time
-            editlesson.price = price
-            editlesson.save()
+            edit_lesson.student = get_student
+            edit_lesson.lesson_type = lesson_type
+            edit_lesson.timestamp = time
+            edit_lesson.price = price
+            edit_lesson.save()
             return redirect("schedule")
         except CustomUser.DoesNotExist:
             return render(request, "update_lesson.html", {'error': "User does not exist"})
-    return render(request, "update_lesson.html", {'editlesson': editlesson})
+    return render(request, "update_lesson.html", {'edit_lesson': edit_lesson})
 
 
 '''

@@ -22,7 +22,7 @@
           {% endif %}
           <div class="input-group">
             <div class="input-group-text">@</div>
-            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user" value={{editlesson.student}} required>
+            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user" value={{edit_lesson.student}} required>
           </div>
           <div>
             <select name="type_of_lesson" class="form-select" aria-label="Default select example" required>
@@ -36,15 +36,15 @@
           </div>
           <div class="input-group">
             <div class="input-group-text">£</div>
-            <input type="number" class="form-control" name="price_of_lesson" placeholder="Price" value={{editlesson.price}} min="0" required>
+            <input type="number" class="form-control" name="price_of_lesson" placeholder="Price" value={{edit_lesson.price}} min="0" required>
           </div>
           <button type="submit" name="submit" class="btn btn-primary" id="savebutton">Save</button>
       </form>
     </div>
     <script>
-      const time = '{{editlesson.timestamp.hour}}:{{editlesson.timestamp.minute}}';
+      const time = '{{edit_lesson.timestamp.hour}}:{{edit_lesson.timestamp.minute}}';
       const formattedTime = moment(time, 'hh:mm A').format('HH:mm');
-      const inputDate = '{{editlesson.timestamp.year}}-{{editlesson.timestamp.month}}-{{editlesson.timestamp.day}}T' + formattedTime;
+      const inputDate = '{{edit_lesson.timestamp.year}}-{{edit_lesson.timestamp.month}}-{{edit_lesson.timestamp.day}}T' + formattedTime;
       const today = new Date().toISOString().slice(0, 16);
       document.getElementById('dateInput').min = today;
       document.getElementById('dateInput').value = inputDate;

@@ -30,7 +30,7 @@
                             <p>Trainer: @{{q.trainer}}</p>
                             <p>Lesson Type: {{q.lesson_type}}</p>
                             <p>Time and date: {{q.timestamp}}</p>
-                            <p>Price: {{q.price}}</p>
+                            <p>Price: £{{q.price}}</p>
                             <p>Status: {{q.status}}</p>
                         </div>
                     </div>
@@ -43,12 +43,12 @@
                     {% if incoming_error %}
                     <p class="EmptyCalendar">Incoming Lessons will be here</p>
                     {% endif %}
-                    {% for q in incominglessons.all|slice:"0:3" %}
+                    {% for q in incoming_lessons.all|slice:"0:3" %}
                     <div  class="incoming_box" id="dashboard_calendar_item">
                         <h2 class="fs-3" data-bs-toggle="collapse" href="#{{ q.id }}" role="button" aria-expanded="false" aria-controls="collapseExample">@{{ q.trainer }}</h2>
                         <div id="accept_box">
-                            <a type="button" href={% url "acceptlesson" q.id%} class="btn btn-outline-success">Accept</a>
-                            <a type="button" href={% url "cancellesson" q.id %} class="btn btn-outline-danger">Cancel</a>
+                            <a type="button" href={% url "accept_lesson" q.id%} class="btn btn-outline-success">Accept</a>
+                            <a type="button" href={% url "cancel_lesson" q.id %} class="btn btn-outline-danger">Cancel</a>
                         </div>
                     </div>
                     <div class="collapse calendar_dropdown" id="{{ q.id }}">
@@ -56,7 +56,7 @@
                             <p>Trainer: @{{q.trainer}}</p>
                             <p>Lesson Type: {{q.lesson_type}}</p>
                             <p>Time and date: {{q.timestamp}}</p>
-                            <p>Price: {{q.price}}</p>
+                            <p>Price: £{{q.price}}</p>
                         </div>
                     </div>
                 </div>
