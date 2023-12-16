@@ -215,9 +215,21 @@ Each lesson displayed has a "more" button when pressed drops down two options wh
 #### Delete
 -   When you hit the "delete" option, the lesson of choice will be automatically deleted for the trainer and for the student.
 
+### Error Pages
+
+There are two error pages which respond to either the 404 error which is displayed when the url pathway is false, or when a user is trying to perform an incorrect action the 500 error page is shown.
+
+<details><summary>404 Error</summary>
+<img src="images/404.JPG">
+</details>
+
+<details><summary>500 Error</summary>
+<img src="images/500.JPG">
+</details>
+
 ## Database Design
 
-The application consists of two main models taht are the "CustomUser" is where all the users are stored including passwords, email and type of account. Second model "Training Sessions" holds all the lessons which consist of what trainer created the user and for what student the lesson is for and the details accordingly. The "status" field contais the 3 options for each lesson.
+The application consists of two main models that are the "CustomUser" is where all the users are stored including passwords, email and type of account. Second model "Training Sessions" holds all the lessons which consist of what trainer created the user and for what student the lesson is for and the details accordingly. The "status" field contains the 3 options for each lesson.
 
 <img src="images/database_diagram.JPG">
 
@@ -252,7 +264,14 @@ All images used have been purchased from the shutterstock website which I hold t
 
 ### Websites
 
-Here is the list of websites I used to get information or anwsers to any problems I had when creating the app and writing code:
+Here is the list of websites I used to get information or answers to any problems I had when creating the app and writing code:
 
+The website I used to understand how to create a "CustomUser" model which extends from the regular user model:
+
+https://learndjango.com/tutorials/django-custom-user-model
+
+Extra websites I used for help:
+
+https://stackoverflow.com/<br>
 https://codemy.com/<br>
 https://animated-gradient-background-generator.netlify.app/<br>

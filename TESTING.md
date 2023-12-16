@@ -96,6 +96,13 @@ Account Pages
 -   update_lesson.html
     - no Errors
 
+#### Errors
+
+-   404.html
+    - no Errors
+-   500.html
+    - no Errors
+
 ### CI Python Linter 
 
 I tested all the python files using the Code Institute python Linter, this is not including the files that were originally created by the django REST Framework.
