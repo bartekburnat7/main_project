@@ -42,6 +42,24 @@
                 <img src={% static "images/aboutus.jpg" %} class="card-img" alt="about us card">
             </div>
         </div>
+        <div class="row" id="appFeaturesSection">
+            <div class="card col-sm-5">
+              <img src={% static "images/features.jpg" %} class="card-img-top" alt="features">
+              <div class="card-body">
+                <h5 class="card-title">Features</h5>
+                <p class="card-text">Explore endless possibilities with our app's rich features ensure a seamless experience at your fingertips!</p>
+                <a href={% url "features" %} class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+            <div class="card col-sm-5">
+              <img src={% static "images/aboutus.jpg" %} class="card-img-top" alt="features">
+              <div class="card-body">
+                <h5 class="card-title">About Us</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href={% url "about" %} class="btn btn-primary">About Section</a>
+              </div>
+            </div>
+        </div>
         <div id="footer">
             <div id="footerText">
                 <p>FitSync</p>
