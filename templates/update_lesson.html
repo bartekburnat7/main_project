@@ -15,10 +15,13 @@
       <h1>Update Lesson</h1>
       <form method="POST" id="add_lesson_form" action="">
           {% csrf_token %}
-          {% if error %}
-          <div class="alert alert-danger" role="alert">
-            {{error}}
-          </div>
+          {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
           {% endif %}
           <div class="input-group">
             <div class="input-group-text">@</div>
@@ -26,6 +29,7 @@
           </div>
           <div>
             <select name="type_of_lesson" class="form-select" aria-label="Default select example" required>
+              <option value={{edit_lesson.lesson_type}} selected>Current type: {{edit_lesson.lesson_type}}</option>
               <option value="Gym Training">Gym Training</option>
               <option value="Outside Training">Outside Training</option>
               <option value="Online Lesson">Online Lesson</option>

@@ -187,9 +187,12 @@ def EditLesson(request, lesson_id):
             edit_lesson.timestamp = time
             edit_lesson.price = price
             edit_lesson.save()
+            message = "Lesson for @" + get_student.username + " saved!"
+            messages.add_message(request, messages.INFO, message)
             return redirect("schedule")
         except CustomUser.DoesNotExist:
-            return render(request, "update_lesson.html", {'error': "User does not exist"})
+            messages.add_message(request, messages.INFO, "@" + student + " does not exist.")
+            redirect("update_lesson/lesson_id")
     return render(request, "update_lesson.html", {'edit_lesson': edit_lesson})
 
 

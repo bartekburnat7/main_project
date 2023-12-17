@@ -10,13 +10,15 @@
   </head>
   <body>
     {% include "navbar/dashboard_navbar.html" %}
-    {% include "messages.html" %}
     <h1 id="text_heading">Schedule Lesson</h1>
     <div class="row">
-      <form method="POST" id="add_lesson_form" class="col-md-4">
+      <form method="POST" id="add_lesson_form" class="col-md-4 border-end">
         {% csrf_token %}
         {% if form_error %}
-          <p id="form_error">{{ form_error }}</p>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{ form_error }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         {% endif %}
         <div class="input-group">
           <div class="input-group-text">@</div>
@@ -37,6 +39,7 @@
       </form>
       
       <div id="calendar" class="col-md-8">
+        {% include "messages.html" %}
         <p id="EmptyCalendar">{{ dashboard_error }}</p>
         {% for q in query %}
         <div class="dashboard_calendar_item row row-cols-md-2" href="#">
