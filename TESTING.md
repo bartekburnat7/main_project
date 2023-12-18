@@ -7,6 +7,7 @@
 | User can register. |1. Click the "Get Started" or "Sign Up" button.<br>2. Fill out the form accordingly with choice to create either a student or trainer account| Upon confirming that the username is unique and the password meets validation criteria, the registration is deemed successful, leading to redirection to the Dashboard page of the account type. | Worked as expected |
 | User can log in.| 1. Click the "Log In" button in the nav bar.<br>2. Enter and submit your log in detail in the form. | Upon successful validation of the username and password, the user is logged in and then redirected to the designated dashboard.| Worked as expected |
 | User can log out.| 1. Click the "Log Out" button in the navigation bar | After pressing the "Log Out" button you will be logged out from your account and redirected to the homepage. | Worked as expected |
+| Test if the alert messages are displayed | 1. Log into a user account via the login page. | When the user logins into the website, they will be redirected to their dashboard and a green bar should be displayed at the top with a following message. | Worked as expected |
 
 ### Dashboard
 

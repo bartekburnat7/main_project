@@ -270,6 +270,10 @@ The website I used to understand how to create a "CustomUser" model which extend
 
 https://learndjango.com/tutorials/django-custom-user-model
 
+The JavaScript code was taken from this post on StackOverflow:
+
+https://stackoverflow.com/questions/30888197/format-datetime-to-yyyy-mm-dd-hhmmss-in-moment-js
+
 Extra websites I used for help:
 
 https://stackoverflow.com/<br>
