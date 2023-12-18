@@ -30,9 +30,12 @@
         <div>
           <input type="password" class="form-control" placeholder="Re-Enter Password" name="password2" autocomplete="new-password" required="" id="id_password2">  
         </div>
-        <div>
-          <label for="id_is_trainer">Create a Trainer Account:</label>
-          <input type="checkbox" name="is_trainer" id="id_is_trainer"> 
+        <p>Choose account type:</p>
+        <div class="d-flex justify-content-between">
+          <input type="radio" class="btn-check" name="is_trainer" id="success-outlined" value="False" autocomplete="off" checked>
+          <label class="btn btn-outline-primary col-sm-5 me-1" for="success-outlined">Student Account</label>
+          <input type="radio" class="btn-check" name="is_trainer" id="danger-outlined" value="True" autocomplete="off">
+          <label class="btn btn-outline-primary flex-fill col-sm-5" for="danger-outlined">Trainer Account</label>
         </div>      
         <button type="submit" class="btn btn-primary" id="signupbutton">Sign Up</button>
       </form>

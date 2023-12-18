@@ -47,7 +47,9 @@ includes code for the calendar and the earnings.
 
 
 def dashboard(request):
-    AuthCheck(request)
+    auth_result = AuthCheck(request)
+    if auth_result:
+        return auth_result
     current_user = request.user
     query = TrainingSession.objects.filter(trainer=current_user)
     query = query.order_by('timestamp')

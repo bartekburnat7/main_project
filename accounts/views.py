@@ -14,6 +14,7 @@ def signup(request):
         return redirect("dashboard")
     if request.method == 'POST':
         form = SignupForm(request.POST)
+        print(form.data)
         if form.is_valid():
             user = form.save()
             login(request, user)
