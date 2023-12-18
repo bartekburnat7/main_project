@@ -18,7 +18,7 @@ from django.conf import settings
 from django.views.static import serve
 
 from django.contrib import admin
-from django.urls import path , include
+from django.urls import path, include
 from fit_sync_app import views
 
 from allauth.account.views import signup, login, logout
@@ -38,11 +38,17 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('schedule/', views.schedule, name='schedule'),
     path('dashboard/', views.dashboard, name='dashboard'),
-    path('student-dashboard/', views.student_dashboard, name='student_dashboard'),
+    path('student-dashboard/',
+         views.student_dashboard,
+         name='student_dashboard'),
     path('schedule/<lesson_id>', views.DeleteLesson, name='delete_lesson'),
     path('update_lesson/<lesson_id>', views.EditLesson, name='edit_lesson'),
     path('accept/<lesson_id>', views.AcceptLesson, name='accept_lesson'),
     path('cancel/<lesson_id>', views.CancelLesson, name='cancel_lesson'),
-    url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    url(r'^media/(?P<path>.*)$',
+        serve,
+        {'document_root': settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$',
+        serve,
+        {'document_root': settings.STATIC_ROOT}),
 ]

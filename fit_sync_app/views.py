@@ -47,16 +47,16 @@ includes code for the calendar and the earnings.
 
 
 def dashboard(request):
-    auth_result = AuthCheck(request)
-    if auth_result:
-        return auth_result
+    AuthCheck(request)
     current_user = request.user
-    query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
-    return render(request, "dashboard.html", {'query': query,
-                                              'dashboard_error': GetLesson(query),
-                                              'lesson_count': GetLessonCount(query),
-                                              'total_price': LessonTotalPrice(query),
-                                              'fee_price': "{:0.2f}".format(LessonTotalPrice(query) * 0.9)})
+    query = TrainingSession.objects.filter(trainer=current_user)
+    query = query.order_by('timestamp')
+    context = {'query': query,
+               'dashboard_error': GetLesson(query),
+               'lesson_count': GetLessonCount(query),
+               'total_price': LessonTotalPrice(query),
+               'fee_price': "{:0.2f}".format(LessonTotalPrice(query) * 0.9)}
+    return render(request, "dashboard.html", context)
 
 
 '''
@@ -67,15 +67,20 @@ lessons.
 
 
 def student_dashboard(request):
-    current_user = request.user
-    if current_user.is_trainer is True:
+    user = request.user
+    if user.is_trainer is True:
         return redirect("dashboard")
-    query = TrainingSession.objects.filter(student=current_user, status="accepted").order_by('timestamp')
-    incoming_lessons = TrainingSession.objects.filter(student=current_user, status="pending").order_by('timestamp')
-    return render(request, "student_dashboard.html", {'query': query,
-                                                      'dashboard_error': GetLesson(query),
-                                                      'incoming_error': GetLesson(incoming_lessons),
-                                                      'incoming_lessons': incoming_lessons})
+    query = TrainingSession.objects.filter(student=user,
+                                           status="accepted")
+    query = query.order_by('timestamp')
+    incoming_lessons = TrainingSession.objects.filter(student=user,
+                                                      status="pending")
+    incoming_lessons = incoming_lessons.order_by('timestamp')
+    context = {'query': query,
+               'dashboard_error': GetLesson(query),
+               'incoming_error': GetLesson(incoming_lessons),
+               'incoming_lessons': incoming_lessons}
+    return render(request, "student_dashboard.html", context)
 
 
 '''
@@ -89,7 +94,8 @@ def AcceptLesson(request, lesson_id):
         return redirect("student_dashboard")
     accept_lesson.status = "accepted"
     accept_lesson.save()
-    message = "Lesson from @" + accept_lesson.trainer.username + " accepted successfully!"
+    trainer_username = accept_lesson.trainer.username
+    message = "Lesson from @" + trainer_username + " accepted successfully!"
     messages.add_message(request, messages.SUCCESS, message)
     return redirect("student_dashboard")
 
@@ -105,7 +111,8 @@ def CancelLesson(request, lesson_id):
         return redirect("student_dashboard")
     cancel_lesson.status = "cancelled"
     cancel_lesson.save()
-    message = "Lesson from @" + cancel_lesson.trainer.username + " has been cancelled!"
+    trainer_username = cancel_lesson.trainer.username
+    message = "Lesson from @" + trainer_username + " has been cancelled!"
     messages.add_message(request, messages.WARNING, message)
     return redirect("student_dashboard")
 
@@ -136,14 +143,17 @@ def schedule(request):
                 lesson_type=lesson_type,
                 timestamp=time,
                 price=price)
-            message = "Lesson for @" + student.username + " created successfully"
+            student_user = student.username
+            message = "Lesson for @" + student_user + " created successfully"
             messages.add_message(request, messages.SUCCESS, message)
         except CustomUser.DoesNotExist:
             form_error = "User does not exist"
-    query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
-    return render(request, "schedule.html", {'query': query,
-                                             'dashboard_error': GetLesson(query),
-                                             'form_error': form_error})
+    query = TrainingSession.objects.filter(trainer=current_user)
+    query = query.order_by('timestamp')
+    context = {'query': query,
+               'dashboard_error': GetLesson(query),
+               'form_error': form_error}
+    return render(request, "schedule.html", context)
 
 
 '''
@@ -160,7 +170,8 @@ def DeleteLesson(request, lesson_id):
     if current_user != lesson.trainer:
         return redirect("schedule")
     lesson.delete()
-    message = "Lesson for @" + lesson.student.username + " deleted successfully"
+    student_user = lesson.student.username
+    message = "Lesson for @" + student_user + " deleted successfully"
     messages.add_message(request, messages.WARNING, message)
     return redirect("schedule")
 
@@ -195,7 +206,8 @@ def EditLesson(request, lesson_id):
             messages.add_message(request, messages.SUCCESS, message)
             return redirect("schedule")
         except CustomUser.DoesNotExist:
-            messages.add_message(request, messages.ERROR, "@" + student + " does not exist.")
+            message = "@" + student + " does not exist."
+            messages.add_message(request, messages.ERROR, message)
             redirect("update_lesson/lesson_id")
     return render(request, "update_lesson.html", {'edit_lesson': edit_lesson})
 
