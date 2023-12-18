@@ -11,18 +11,11 @@
   </head>
   <body>
     {% include "navbar/dashboard_navbar.html" %}
-    <div class="container" id="updatecontainer">
-      <h1>Update Lesson</h1>
-      <form method="POST" id="add_lesson_form" action="">
+    <div class="mx-auto" id="updatecontainer">
+      <h1 class="p-2" >Update Lesson</h1>
+      {% include "messages.html" %}
+      <form method="POST" class="m-2" id="add_lesson_form" action="">
           {% csrf_token %}
-          {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ message }}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            {% endfor %}
-          {% endif %}
           <div class="input-group">
             <div class="input-group-text">@</div>
             <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username" name="created_for_user" value={{edit_lesson.student}} required>

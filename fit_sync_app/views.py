@@ -89,6 +89,8 @@ def AcceptLesson(request, lesson_id):
         return redirect("student_dashboard")
     accept_lesson.status = "accepted"
     accept_lesson.save()
+    message = "Lesson from @" + accept_lesson.trainer.username + " accepted successfully!"
+    messages.add_message(request, messages.SUCCESS, message)
     return redirect("student_dashboard")
 
 
@@ -103,6 +105,8 @@ def CancelLesson(request, lesson_id):
         return redirect("student_dashboard")
     cancel_lesson.status = "cancelled"
     cancel_lesson.save()
+    message = "Lesson from @" + cancel_lesson.trainer.username + " has been cancelled!"
+    messages.add_message(request, messages.WARNING, message)
     return redirect("student_dashboard")
 
 
@@ -133,7 +137,7 @@ def schedule(request):
                 timestamp=time,
                 price=price)
             message = "Lesson for @" + student.username + " created successfully"
-            messages.add_message(request, messages.INFO, message)
+            messages.add_message(request, messages.SUCCESS, message)
         except CustomUser.DoesNotExist:
             form_error = "User does not exist"
     query = TrainingSession.objects.filter(trainer=current_user).order_by('timestamp')
@@ -157,7 +161,7 @@ def DeleteLesson(request, lesson_id):
         return redirect("schedule")
     lesson.delete()
     message = "Lesson for @" + lesson.student.username + " deleted successfully"
-    messages.add_message(request, messages.INFO, message)
+    messages.add_message(request, messages.WARNING, message)
     return redirect("schedule")
 
 
@@ -188,10 +192,10 @@ def EditLesson(request, lesson_id):
             edit_lesson.price = price
             edit_lesson.save()
             message = "Lesson for @" + get_student.username + " saved!"
-            messages.add_message(request, messages.INFO, message)
+            messages.add_message(request, messages.SUCCESS, message)
             return redirect("schedule")
         except CustomUser.DoesNotExist:
-            messages.add_message(request, messages.INFO, "@" + student + " does not exist.")
+            messages.add_message(request, messages.ERROR, "@" + student + " does not exist.")
             redirect("update_lesson/lesson_id")
     return render(request, "update_lesson.html", {'edit_lesson': edit_lesson})
 
