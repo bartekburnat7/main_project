@@ -239,6 +239,34 @@ There is also a third model which is a "setting" table, which I added for furthe
 
 All manual testing and code validation was documented in the [TESTING.md](TESTING.md) file.
 
+## Github and Deployment to Heroku
+
+#### __Heroku Application Setup__
+
+- Press "New" on the Heroku main page, select 'Create new app.'
+- Fill out the form with 'App name' and 'Choose a region,' then press 'Create app.'
+- Connect to the GitHub repository and enable manual or automatic deploys.
+
+#### __Configure Heroku App__
+
+- In 'Settings,' go to 'Config Vars' and reveal.
+- Enter values for:
+    - `DATABASE_URL` (ElephantSQL)
+    - `SECRET_KEY` (Generated key)
+    - `DISABLE_COLLECTSTATIC` (1)
+    - `PORT` with the value 8000
+
+#### __Deployment and Final Steps__
+
+- Set `DEBUG` to `False` in 'settings.py.'
+- Ensure 'requirements.txt' is updated.
+- Ensure Procfile has been created.
+- Deploy the main branch on Heroku.
+
+#### __Live Project__
+
+Upon successful deployment, click 'Open App' on Heroku to access the live project
+
 ## Technologies Used
 
 ### Programming languages
@@ -276,6 +304,7 @@ https://stackoverflow.com/questions/30888197/format-datetime-to-yyyy-mm-dd-hhmms
 
 Extra websites I used for help:
 
+https://www.djangoproject.com/<br>
 https://stackoverflow.com/<br>
 https://codemy.com/<br>
 https://animated-gradient-background-generator.netlify.app/<br>
