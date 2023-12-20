@@ -61,7 +61,20 @@ Minor bugs were found where on the features page the videos would not auto-play 
 
 ## Unit Testing
 
+I created 10 tests for all the urls and 2 tests for the views file which renders the html pages:
+
+<details><summary>Jigsaw validator results</summary>
+<img src="images/unit_test.jpg">
+</details>
+
 ## Validator Testing
+
+### CSS W3C Jigsaw Validator 
+No errors found
+
+<details><summary>Jigsaw validator results</summary>
+<img src="images/test_css.jpg">
+</details>
 
 ### HTML W3C Validator
 
@@ -114,8 +127,6 @@ I tested all the python files using the Code Institute python Linter, this is no
 -   models.py
 -   views.py
 
-The only errors that was displayed by the CI python linter were the line length errors due to the lines being over 80 characters long.
-
 #### accounts
 -   admin.py
 -   apps.py
@@ -123,5 +134,3 @@ The only errors that was displayed by the CI python linter were the line length 
 -   models.py
 -   urls.py
 -   views.py
-
-The only errors that was displayed by the CI python linter were the line length errors due to the lines being over 80 characters long.

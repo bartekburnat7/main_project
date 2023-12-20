@@ -302,6 +302,10 @@ The JavaScript code was taken from this post on StackOverflow:
 
 https://stackoverflow.com/questions/30888197/format-datetime-to-yyyy-mm-dd-hhmmss-in-moment-js
 
+The unit testing was based on the YouTube tutorial by "The Dumbfounds":
+
+https://www.youtube.com/playlist?list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM
+
 Extra websites I used for help:
 
 https://www.djangoproject.com/<br>
