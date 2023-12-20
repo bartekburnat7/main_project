@@ -4,6 +4,8 @@ FitSync is a Full-Stack online application created for personal trainers to keep
 
 I created this full-stack website using Django framework, Python, HTML/CSS Bootstrap and JavaScript. I used ElephantSQL as the database of choice to store the usernames and the Scheduled Lessons.
 
+https://fit-sync-app-3c73d8b079d6.herokuapp.com/
+
 ## Table of Contents
 
 * [User Interface / User Experience](#user-interface--user-experience)
